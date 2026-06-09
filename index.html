@@ -322,6 +322,30 @@
     /* Opaque nav on home — avoids charcoal hero bleeding through */
     nav { background: rgb(253,249,243); }
 
+    /* Mission with photo */
+    .hp-mission-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .hp-mission-img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* Work pillar images */
+    .hp-pillar-img {
+      width: 100%;
+      height: 175px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 1.75rem;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       .hp-hero { padding: 7rem 1.5rem 5rem; }
@@ -405,11 +429,14 @@
 
   <!-- 2. MISSION -->
   <section class="hp-mission">
-    <div class="hp-mission-inner">
-      <p>Young Christians face a culture that pushes hard on everything they believe. Amber &amp; Ember was built to come alongside them, with teaching, tools, and real partnerships that reach into the places Sunday morning cannot. We don't replace the local church. We work with it.</p>
-      <div class="hp-scripture">
-        "Train up a child in the way he should go: and when he is old, he will not depart from it."
-        <cite>Proverbs 22:6, KJV</cite>
+    <div class="hp-mission-layout">
+      <img src="Mission Section.png" class="hp-mission-img" alt="A family caring for a newborn" />
+      <div class="hp-mission-inner">
+        <p>Young Christians face a culture that pushes hard on everything they believe. Amber &amp; Ember was built to come alongside them, with teaching, tools, and real partnerships that reach into the places Sunday morning cannot. We don't replace the local church. We work with it.</p>
+        <div class="hp-scripture">
+          "Train up a child in the way he should go: and when he is old, he will not depart from it."
+          <cite>Proverbs 22:6, KJV</cite>
+        </div>
       </div>
     </div>
   </section>
@@ -418,25 +445,29 @@
   <section class="hp-work" id="the-work">
     <div class="hp-work-label">The Work</div>
     <div class="hp-work-grid">
-      <div class="hp-pillar">
-        <div class="hp-pillar-name">Outreach</div>
-        <p class="hp-pillar-desc">Charitable work alongside local churches and pro-life partners, where real need meets real support.</p>
-        <a href="nonprofits.html" class="hp-pillar-link">View Initiatives</a>
+      <div class=”hp-pillar”>
+        <img src=”The Work - Outreach card.png” class=”hp-pillar-img” alt=”Construction crew serving a church” />
+        <div class=”hp-pillar-name”>Outreach</div>
+        <p class=”hp-pillar-desc”>Charitable work alongside local churches and pro-life partners, where real need meets real support.</p>
+        <a href=”nonprofits.html” class=”hp-pillar-link”>View Initiatives</a>
       </div>
-      <div class="hp-pillar">
-        <div class="hp-pillar-name">Content</div>
-        <p class="hp-pillar-desc">Books, a podcast, and a YouTube channel built to teach the Bible clearly and without noise.</p>
-        <a href="content.html" class="hp-pillar-link">View Content</a>
+      <div class=”hp-pillar”>
+        <img src=”The Work - Content.png” class=”hp-pillar-img” alt=”Bible and microphone on a desk” />
+        <div class=”hp-pillar-name”>Content</div>
+        <p class=”hp-pillar-desc”>Books, a podcast, and a YouTube channel built to teach the Bible clearly and without noise.</p>
+        <a href=”content.html” class=”hp-pillar-link”>View Content</a>
       </div>
-      <div class="hp-pillar">
-        <div class="hp-pillar-name">App</div>
-        <p class="hp-pillar-desc">Growing in Grace â€” a daily devotional app for young believers building a life in Scripture.</p>
-        <a href="app.html" class="hp-pillar-link">About the App</a>
+      <div class=”hp-pillar”>
+        <img src=”The Work - App.png” class=”hp-pillar-img” alt=”Person reading Scripture on a phone” />
+        <div class=”hp-pillar-name”>App</div>
+        <p class=”hp-pillar-desc”>Growing in Grace — a daily devotional app for young believers building a life in Scripture.</p>
+        <a href=”app.html” class=”hp-pillar-link”>About the App</a>
       </div>
-      <div class="hp-pillar">
-        <div class="hp-pillar-name">Seminary</div>
-        <p class="hp-pillar-desc">Deep-dive Bible studies for those who want to understand, not merely read.</p>
-        <a href="education.html" class="hp-pillar-link">Learn More</a>
+      <div class=”hp-pillar”>
+        <img src=”The Work - Seminary.png” class=”hp-pillar-img” alt=”Bible study materials on a desk” />
+        <div class=”hp-pillar-name”>Seminary</div>
+        <p class=”hp-pillar-desc”>Deep-dive Bible studies for those who want to understand, not merely read.</p>
+        <a href=”education.html” class=”hp-pillar-link”>Learn More</a>
       </div>
     </div>
   </section>
