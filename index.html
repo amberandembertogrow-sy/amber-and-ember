@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://f.convertkit.com/ckjs/ck.5.js" async></script>
   <style>
     /* ---- HOME PAGE ---- */
 
@@ -317,6 +318,9 @@
       letter-spacing: 0.04em;
     }
 
+    /* Opaque nav on home — avoids charcoal hero bleeding through */
+    nav { background: rgb(253,249,243); }
+
     /* Responsive */
     @media (max-width: 900px) {
       .hp-hero { padding: 7rem 1.5rem 5rem; }
@@ -453,17 +457,21 @@
   </section>
 
   <!-- 5. EMAIL CAPTURE -->
-  <div class="hp-email" id="stay-connected">
-    <div id="hp-email-form-wrap">
-      <h2 class="hp-email-heading">Stay Connected</h2>
-      <p class="hp-email-copy">We send updates when there's something worth saying â€” new content, initiatives, and what God is doing through this ministry.</p>
-      <form class="hp-email-form" id="hp-kit-form" novalidate>
-        <!-- honeypot: bots fill this, humans don't -->
-        <input type="text" name="hp_field" style="display:none;position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" />
-        <input type="email" id="hp-email-input" name="email_address" placeholder="your@email.com" required autocomplete="email" />
-        <button type="submit" id="hp-submit-btn">Sign Up</button>
+  <div class=”hp-email” id=”stay-connected”>
+    <div id=”hp-email-form-wrap”>
+      <h2 class=”hp-email-heading”>Stay Connected</h2>
+      <p class=”hp-email-copy”>We send updates when there's something worth saying — new content, initiatives, and what God is doing through this ministry.</p>
+      <form class=”hp-email-form seva-form”
+            action=”https://app.kit.com/forms/9544084/subscriptions”
+            method=”post”
+            data-sv-form=”9544084”
+            data-uid=”56bbfce286”
+            data-format=”inline”
+            data-version=”5”>
+        <input type=”email” name=”email_address” placeholder=”your@email.com” required autocomplete=”email” />
+        <button type=”submit”>Sign Up</button>
       </form>
-      <p class="hp-email-msg" id="hp-email-msg" aria-live="polite"></p>
+      <p class=”hp-email-msg” id=”hp-email-msg” aria-live=”polite”></p>
     </div>
   </div>
 
@@ -494,54 +502,6 @@
       document.getElementById('navLinks').classList.toggle('open');
     }
 
-    document.getElementById('hp-kit-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      var honeypot = this.querySelector('input[name="hp_field"]');
-      if (honeypot && honeypot.value) return;
-
-      var emailInput = document.getElementById('hp-email-input');
-      var btn = document.getElementById('hp-submit-btn');
-      var msg = document.getElementById('hp-email-msg');
-      var email = emailInput.value.trim();
-
-      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!emailOk) {
-        msg.textContent = 'Please enter a valid email address.';
-        msg.className = 'hp-email-msg error';
-        emailInput.focus();
-        return;
-      }
-
-      btn.disabled = true;
-      btn.textContent = 'Sendingâ€¦';
-      msg.textContent = '';
-      msg.className = 'hp-email-msg';
-
-      var body = new URLSearchParams();
-      body.append('email_address', email);
-
-      fetch('https://app.kit.com/forms/9544084/subscriptions', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body.toString()
-      })
-      .then(function(res) {
-        if (res.ok || res.status === 200 || res.status === 201) {
-          document.getElementById('hp-email-form-wrap').innerHTML =
-            '<p style="font-family:\'Cormorant Garamond\',serif;font-size:1.6rem;font-weight:300;color:var(--charcoal);">You\'re on the list.</p>' +
-            '<p style="font-size:0.85rem;color:var(--text-muted);margin-top:0.5rem;">Check your inbox to confirm your subscription.</p>';
-        } else {
-          throw new Error('bad status');
-        }
-      })
-      .catch(function() {
-        btn.disabled = false;
-        btn.textContent = 'Sign Up';
-        msg.textContent = 'Something went wrong. Please try again or reach out directly.';
-        msg.className = 'hp-email-msg error';
-      });
-    });
   </script>
 
 </body>
