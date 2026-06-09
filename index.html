@@ -191,26 +191,37 @@
 
     /* Email capture */
     .hp-email {
-      padding: 3.5rem 4rem;
-      background: var(--warm-white);
+      padding: 6rem 4rem;
+      background: var(--cream);
+      text-align: center;
       border-top: 1px solid var(--rule);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
+    }
+    .hp-email-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 300;
+      color: var(--charcoal);
+      margin-bottom: 0.75rem;
+      line-height: 1.15;
     }
     .hp-email-copy {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
       font-weight: 300;
+      max-width: 42ch;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
     }
-    .hp-email-form { display: flex; }
+    .hp-email-form {
+      display: inline-flex;
+      max-width: 460px;
+      width: 100%;
+    }
     .hp-email-form input {
-      width: 240px;
-      padding: 0.75rem 1rem;
-      background: var(--cream);
-      border: 1px solid rgba(201,123,46,0.3);
+      flex: 1;
+      padding: 0.8rem 1rem;
+      background: var(--warm-white);
+      border: 1px solid rgba(201,123,46,0.35);
       border-right: none;
       color: var(--text-body);
       font-family: 'DM Sans', sans-serif;
@@ -221,9 +232,9 @@
     .hp-email-form input::placeholder { color: rgba(61,53,48,0.4); }
     .hp-email-form input:focus { border-color: var(--amber); }
     .hp-email-form button {
-      padding: 0.75rem 1.25rem;
-      background: var(--ember);
-      border: 1px solid var(--ember);
+      padding: 0.8rem 1.5rem;
+      background: var(--amber);
+      border: 1px solid var(--amber);
       color: var(--cream);
       font-family: 'DM Sans', sans-serif;
       font-size: 0.72rem;
@@ -232,9 +243,17 @@
       text-transform: uppercase;
       cursor: pointer;
       white-space: nowrap;
-      transition: background 0.2s;
+      transition: background 0.2s, border-color 0.2s;
     }
-    .hp-email-form button:hover { background: var(--ember-deep); border-color: var(--ember-deep); }
+    .hp-email-form button:hover { background: var(--ember); border-color: var(--ember); }
+    .hp-email-form button:disabled { opacity: 0.6; cursor: default; }
+    .hp-email-msg {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      min-height: 1.4em;
+    }
+    .hp-email-msg.success { color: var(--amber); }
+    .hp-email-msg.error { color: var(--ember); }
 
     /* Footer */
     .hp-footer {
@@ -434,12 +453,18 @@
   </section>
 
   <!-- 5. EMAIL CAPTURE -->
-  <div class="hp-email">
-    <p class="hp-email-copy">Stay updated on what we're building. One email when there's something worth saying.</p>
-    <form class="hp-email-form" onsubmit="return false;">
-      <input type="email" placeholder="your@email.com" />
-      <button type="submit">Sign Up</button>
-    </form>
+  <div class="hp-email" id="stay-connected">
+    <div id="hp-email-form-wrap">
+      <h2 class="hp-email-heading">Stay Connected</h2>
+      <p class="hp-email-copy">We send updates when there's something worth saying — new content, initiatives, and what God is doing through this ministry.</p>
+      <form class="hp-email-form" id="hp-kit-form" novalidate>
+        <!-- honeypot: bots fill this, humans don't -->
+        <input type="text" name="hp_field" style="display:none;position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" />
+        <input type="email" id="hp-email-input" name="email_address" placeholder="your@email.com" required autocomplete="email" />
+        <button type="submit" id="hp-submit-btn">Sign Up</button>
+      </form>
+      <p class="hp-email-msg" id="hp-email-msg" aria-live="polite"></p>
+    </div>
   </div>
 
   <!-- FOOTER -->
@@ -468,6 +493,55 @@
     function toggleNav() {
       document.getElementById('navLinks').classList.toggle('open');
     }
+
+    document.getElementById('hp-kit-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var honeypot = this.querySelector('input[name="hp_field"]');
+      if (honeypot && honeypot.value) return;
+
+      var emailInput = document.getElementById('hp-email-input');
+      var btn = document.getElementById('hp-submit-btn');
+      var msg = document.getElementById('hp-email-msg');
+      var email = emailInput.value.trim();
+
+      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailOk) {
+        msg.textContent = 'Please enter a valid email address.';
+        msg.className = 'hp-email-msg error';
+        emailInput.focus();
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      msg.textContent = '';
+      msg.className = 'hp-email-msg';
+
+      var body = new URLSearchParams();
+      body.append('email_address', email);
+
+      fetch('https://app.kit.com/forms/9544084/subscriptions', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString()
+      })
+      .then(function(res) {
+        if (res.ok || res.status === 200 || res.status === 201) {
+          document.getElementById('hp-email-form-wrap').innerHTML =
+            '<p style="font-family:\'Cormorant Garamond\',serif;font-size:1.6rem;font-weight:300;color:var(--charcoal);">You\'re on the list.</p>' +
+            '<p style="font-size:0.85rem;color:var(--text-muted);margin-top:0.5rem;">Check your inbox to confirm your subscription.</p>';
+        } else {
+          throw new Error('bad status');
+        }
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Sign Up';
+        msg.textContent = 'Something went wrong. Please try again or reach out directly.';
+        msg.className = 'hp-email-msg error';
+      });
+    });
   </script>
 
 </body>
