@@ -8,6 +8,64 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .content-hub-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .content-hub-card {
+      padding: 3rem 3rem 3rem 0;
+      border-right: 1px solid var(--rule);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.2s;
+    }
+    .content-hub-card:hover { background: var(--cream); }
+    .content-hub-card + .content-hub-card { padding-left: 3rem; }
+    .content-hub-card:last-child { border-right: none; padding-right: 0; }
+    .hub-card-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+    .hub-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+    .hub-card-desc {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 1.75rem;
+    }
+    .hub-card-cta {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ember);
+      border-bottom: 1px solid rgba(139,34,21,0.3);
+      padding-bottom: 0.15rem;
+    }
+    @media (max-width: 900px) {
+      .content-hub-grid { grid-template-columns: 1fr; }
+      .content-hub-card { padding: 2.5rem 0; border-right: none; border-bottom: 1px solid var(--rule); }
+      .content-hub-card + .content-hub-card { padding-left: 0; }
+      .content-hub-card:last-child { border-bottom: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -20,9 +78,9 @@
       <li class="nav-dropdown">
         <a href="content.html" class="active">Content</a>
         <div class="dropdown-menu">
-          <a href="#books">Books</a>
-          <a href="#podcast">Podcast</a>
-          <a href="#youtube">YouTube</a>
+          <a href="books.html">Books</a>
+          <a href="podcast.html">Podcast</a>
+          <a href="youtube.html">YouTube</a>
         </div>
       </li>
       <li><a href="app.html">App</a></li>
@@ -34,7 +92,6 @@
         </div>
       </li>
     </ul>
-    <a href="get-involved.html" class="nav-cta">Get Involved</a>
     <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -43,105 +100,39 @@
   <div class="page-header">
     <div class="section-eyebrow">Content</div>
     <h1>What We're Building</h1>
-    <p>Books, a podcast, and a YouTube channel. The books are out now. The rest is in development — here's what's coming.</p>
+    <p>Books, a podcast, and a YouTube channel. Select one to learn more.</p>
   </div>
 
-  <nav class="content-nav">
-    <ul>
-      <li><a href="#books" class="active">Books</a></li>
-      <li><a href="#podcast">Podcast</a></li>
-      <li><a href="#youtube">YouTube</a></li>
-    </ul>
-  </nav>
-
-  <!-- BOOKS -->
-  <section id="books">
-    <div class="section-eyebrow">Publishing</div>
-    <h2 class="section-heading">The Draw the Line Series</h2>
-    <p class="section-body" style="max-width:600px;">Three books written to help young Christians think clearly about their faith — not theory, but the stuff that shows up in real life. Christian liberty, what it means to be a man, and what order actually looks like. More are in the works.</p>
-    <p class="section-body" style="max-width:600px;margin-top:1rem;">Each book is available as an ebook and softback through Amazon.</p>
-    <div class="books-grid">
-      <div class="book-card">
-        <div class="book-number">Book 1 — Draw the Line</div>
-        <h3>Free Indeed</h3>
-        <div class="book-formats">
-          <span class="format-tag">Ebook</span>
-          <span class="format-tag">Softback</span>
-        </div>
-        <a href="https://www.amazon.com/dp/B0GX2QYBJG?binding=kindle_edition&ref=dbs_dp_sirpi" target="_blank" rel="noopener" class="btn-primary">Get on Amazon</a>
-      </div>
-      <div class="book-card">
-        <div class="book-number">Book 2 — Draw the Line</div>
-        <h3>The Serpent and the Cup</h3>
-        <div class="book-formats">
-          <span class="format-tag">Ebook</span>
-          <span class="format-tag">Softback</span>
-        </div>
-        <a href="https://www.amazon.com/dp/B0GX2QYBJG?binding=kindle_edition&ref=dbs_dp_sirpi" target="_blank" rel="noopener" class="btn-primary">Get on Amazon</a>
-      </div>
-      <div class="book-card">
-        <div class="book-number">Book 3 — Draw the Line</div>
-        <h3>Clothed in Order</h3>
-        <div class="book-formats">
-          <span class="format-tag">Ebook</span>
-          <span class="format-tag">Softback</span>
-        </div>
-        <a href="https://www.amazon.com/dp/B0GX2QYBJG?binding=kindle_edition&ref=dbs_dp_sirpi" target="_blank" rel="noopener" class="btn-primary">Get on Amazon</a>
-      </div>
+  <section>
+    <div class="content-hub-grid">
+      <a href="books.html" class="content-hub-card">
+        <div class="hub-card-label">Publishing</div>
+        <div class="hub-card-title">Books</div>
+        <p class="hub-card-desc">The Draw the Line series — written to help young Christians think clearly about their faith. Three books are out now, with more in the works.</p>
+        <span class="hub-card-cta">View the Series</span>
+      </a>
+      <a href="podcast.html" class="content-hub-card">
+        <div class="hub-card-label">Audio</div>
+        <div class="hub-card-title">Podcast</div>
+        <p class="hub-card-desc">A group of men talking honestly about modern issues, biblical standards, and what it means to live as a Christian at work and at home.</p>
+        <span class="hub-card-cta">Learn More</span>
+      </a>
+      <a href="youtube.html" class="content-hub-card">
+        <div class="hub-card-label">Video</div>
+        <div class="hub-card-title">YouTube</div>
+        <p class="hub-card-desc">Visual and historical context for the Books of the Bible — making Scripture make sense by showing you the world it was written in.</p>
+        <span class="hub-card-cta">Learn More</span>
+      </a>
     </div>
   </section>
 
-  <hr class="rule" />
-
-  <!-- PODCAST -->
-  <section style="background:var(--cream);" id="podcast">
-    <div class="coming-panel">
-      <div class="coming-panel-left">
-        <span class="badge-coming">Coming Soon</span>
-        <div class="section-eyebrow">Podcast</div>
-        <h2 class="section-heading">Real conversation.<br>Biblical answers.</h2>
-        <p class="section-body">A group of men talking honestly about modern issues, biblical standards, and what it means to be a Christian at work and at home. Not a panel of experts with polished takes. Just honest conversation about things that matter.</p>
-        <p class="section-body" style="margin-top:1.25rem;">Topics will cover Christian standards, the workplace, marriage, and what the Bible actually says about how to live — not just what we want it to say.</p>
-      </div>
-      <div class="coming-panel-aside">
-        <span class="aside-icon">🎙️</span>
-        <p>Sign up to hear when we launch</p>
-        <a href="index.html#contact" class="btn-primary" style="font-size:0.72rem;padding:0.7rem 1.5rem;">Notify Me</a>
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule" />
-
-  <!-- YOUTUBE -->
-  <section id="youtube">
-    <div class="coming-panel">
-      <div class="coming-panel-left">
-        <span class="badge-coming">Coming Soon</span>
-        <div class="section-eyebrow">YouTube Channel</div>
-        <h2 class="section-heading">Scripture in context.</h2>
-        <p class="section-body">The goal is to visually and accurately represent the Bible — the settings, the culture, the people, and what was actually happening. Understanding where Paul was writing from, or what a city looked like when Jesus walked through it, changes how you read.</p>
-        <p class="section-body" style="margin-top:1.25rem;">We're also planning a short series for Proverbs aimed at kids — visual lessons that make it clear what the Bible is actually teaching.</p>
-      </div>
-      <div class="coming-panel-aside">
-        <span class="aside-icon">🎬</span>
-        <p>Sign up to hear when we launch</p>
-        <a href="index.html#contact" class="btn-primary" style="font-size:0.72rem;padding:0.7rem 1.5rem;">Notify Me</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-logo">Amber <span>&amp;</span> Ember</div>
-    <p>Discipling young believers.</p>
-    <p>&copy; 2025 Amber &amp; Ember Ministry</p>
+  <footer style="background:var(--charcoal);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <a href="index.html" style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(250,246,238,0.5);text-decoration:none;">Amber <span style="color:var(--amber);">&amp;</span> Ember</a>
+    <p style="font-size:0.75rem;color:rgba(250,246,238,0.25);">&copy; 2025 Amber &amp; Ember Ministry</p>
   </footer>
 
   <script>
-    function toggleNav() {
-      document.getElementById('navLinks').classList.toggle('open');
-    }
+    function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
   </script>
-
 </body>
 </html>
