@@ -8,6 +8,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .hub-card {
+      border: 1px solid var(--rule);
+      padding: 2.5rem;
+      background: var(--warm-white);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .hub-card-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+    .hub-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.15;
+    }
+    .hub-card p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      font-weight: 300;
+      flex: 1;
+    }
+    .hub-card-link {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201,123,46,0.35);
+      padding-bottom: 0.15rem;
+      transition: color 0.2s, border-color 0.2s;
+      margin-top: 0.5rem;
+    }
+    .hub-card-link:hover { color: var(--ember); border-color: var(--ember); }
+    @media (max-width: 680px) {
+      .hub-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -41,7 +95,7 @@
       <li class="nav-dropdown">
         <a href="support.html" class="active">Support</a>
         <div class="dropdown-menu">
-          <a href="support.html">Give</a>
+          <a href="give.html">Give</a>
           <a href="get-involved.html">Get Involved</a>
         </div>
       </li>
@@ -54,79 +108,24 @@
 
   <div class="page-header">
     <div class="section-eyebrow">Support</div>
-    <h1>Support the Work</h1>
-    <p>Amber &amp; Ember operates across three areas. Each one has a real need behind it. Here's how you can be part of meeting it.</p>
+    <h1>Be Part of the Work</h1>
+    <p>Two ways to stand behind what Amber &amp; Ember is doing.</p>
   </div>
 
-  <!-- GIVE -->
-  <section id="give">
-    <div class="section-eyebrow">Give</div>
-    <h2 class="section-heading">Give to a specific initiative</h2>
-    <p class="section-body" style="max-width:560px;">Every dollar goes directly to work. Choose the initiative you want to support, read what it covers, and give when payment processing is live. Reach out through the form below if you want to give now.</p>
-    <div class="support-grid" style="margin-top:3rem;">
-      <div class="support-card">
-        <h3>Church Support</h3>
-        <p>Fund construction teams, pastor support, and resources for ministries that need help on the ground.</p>
-        <span class="badge-coming" style="display:block;margin-bottom:1rem;">Payment Coming Soon</span>
-        <a href="church-support.html" class="involve-link">Learn About This Initiative</a>
+  <section style="background:var(--cream);">
+    <div class="hub-grid">
+      <div class="hub-card">
+        <div class="hub-card-label">Financial Support</div>
+        <h2>Give</h2>
+        <p>Fund the non-profit initiatives directly. Payment processing is being set up now — see what each initiative covers and give when it's live.</p>
+        <a href="give.html" class="hub-card-link">Go to Give</a>
       </div>
-      <div class="support-card">
-        <h3>Pro-Life Outreach</h3>
-        <p>Help fund pregnancies, support women in need, and resource the hospitals and churches doing this work.</p>
-        <span class="badge-coming" style="display:block;margin-bottom:1rem;">Payment Coming Soon</span>
-        <a href="pro-life.html" class="involve-link">Learn About This Initiative</a>
+      <div class="hub-card">
+        <div class="hub-card-label">Other Ways to Help</div>
+        <h2>Get Involved</h2>
+        <p>Pray, spread the word, or reach out about receiving support. There's more than one way to be part of this.</p>
+        <a href="get-involved.html" class="hub-card-link">Get Involved</a>
       </div>
-      <div class="support-card">
-        <div class="section-eyebrow" style="margin-bottom:0.5rem;">Education Initiative</div>
-        <h3>Discipleship</h3>
-        <p>Support content development and resources for young believers. This is not a non-profit — it is the education side of the ministry.</p>
-        <span class="badge-coming" style="display:block;margin-bottom:1rem;">Payment Coming Soon</span>
-        <a href="discipleship.html" class="involve-link">Learn About This Initiative</a>
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule" />
-
-  <!-- REQUEST SUPPORT -->
-  <section id="request-support">
-    <div class="form-wrap">
-      <div class="section-eyebrow">Request Support</div>
-      <h2 class="section-heading">We want to hear from you</h2>
-      <p class="section-body" style="margin-bottom:2.5rem;">If you're a pastor, a ministry, or a family who could use what we offer, reach out. We're still building out the formal criteria, but if you have a real need, tell us about it. We'll be honest about what we can and can't do.</p>
-
-      <!--
-        TO ACTIVATE THIS FORM:
-        1. Go to formspree.io and create a free account
-        2. Create a new form and copy your form ID
-        3. Replace PLACEHOLDER below with your form ID (e.g. xrgvkpqz)
-      -->
-      <form action="https://formspree.io/f/PLACEHOLDER" method="POST">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required placeholder="Your name" />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="your@email.com" />
-        </div>
-        <div class="form-group">
-          <label for="type">What kind of support are you looking for?</label>
-          <select id="type" name="support_type">
-            <option value="">Select one</option>
-            <option value="church">Church or ministry support</option>
-            <option value="pro-life">Pro-life / pregnancy assistance</option>
-            <option value="discipleship">Discipleship resources</option>
-            <option value="other">Something else</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Tell us about your need</label>
-          <textarea id="message" name="message" required placeholder="What's the situation? What would help?"></textarea>
-        </div>
-        <button type="submit" class="btn-primary">Send Request</button>
-        <p class="form-note">We read every message. You'll hear back from Jacob directly.</p>
-      </form>
     </div>
   </section>
 
