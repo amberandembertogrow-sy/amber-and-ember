@@ -319,8 +319,23 @@
       letter-spacing: 0.04em;
     }
 
-    /* Opaque nav on home — avoids charcoal hero bleeding through */
-    nav { background: rgb(253,249,243); }
+    /* Home page nav: dark, flows with page (not fixed), blends into hero */
+    nav {
+      position: relative;
+      background: var(--charcoal);
+      border-bottom: 1px solid rgba(250,246,238,0.06);
+      backdrop-filter: none;
+    }
+    nav .nav-logo { color: var(--cream); }
+    nav .nav-logo span { color: var(--amber); }
+    nav .nav-links a { color: rgba(250,246,238,0.65); }
+    nav .nav-links a:hover, nav .nav-links a.active { color: var(--amber); }
+    nav .dropdown-menu { background: var(--charcoal); border-color: rgba(250,246,238,0.1); }
+    nav .dropdown-menu a { color: rgba(250,246,238,0.65); }
+    nav .dropdown-menu a:hover { color: var(--amber); }
+    nav .nav-toggle span { background: var(--cream); }
+    nav .nav-cta { border-color: rgba(250,246,238,0.35); color: var(--cream); }
+    .hp-hero { padding-top: 5rem; }
 
     /* Mission with photo */
     .hp-mission-layout {
