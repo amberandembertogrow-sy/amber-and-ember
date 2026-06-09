@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(git clone *)",
-      "PowerShell(git clone https://github.com/amberandembertogrow-sy/amber-and-ember.git \"C:\\\\Users\\\\jacob\\\\OneDrive\\\\Amber and Ember\\\\Website\")"
+      "PowerShell(git clone https://github.com/amberandembertogrow-sy/amber-and-ember.git \"C:\\\\Users\\\\jacob\\\\OneDrive\\\\Amber and Ember\\\\Website\")",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
