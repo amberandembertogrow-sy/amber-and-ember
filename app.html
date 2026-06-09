@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growing in Grace — Amber &amp; Ember</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Amber <span>&amp;</span> Ember</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="content.html">Content</a>
+        <div class="dropdown-menu">
+          <a href="content.html#books">Books</a>
+          <a href="content.html#podcast">Podcast</a>
+          <a href="content.html#youtube">YouTube</a>
+        </div>
+      </li>
+      <li><a href="app.html" class="active">App</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="get-involved.html">Get Involved</a></li>
+    </ul>
+    <a href="get-involved.html" class="nav-cta">Get Involved</a>
+    <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-header" style="background:var(--charcoal);">
+    <div class="section-eyebrow" style="color:var(--amber-light);">The App</div>
+    <h1 style="color:var(--cream);">Growing in Grace</h1>
+    <p style="color:rgba(250,246,238,0.65);">A daily devotional app built for young Christians. The app is built — we're working through the launch process now.</p>
+  </div>
+
+  <section>
+    <div class="app-section-layout">
+      <div>
+        <div class="phone-mock">
+          <div class="phone-screen-content">
+            <div class="app-date">Today's Devotional</div>
+            <div class="app-title">Walking in the Light</div>
+            <div class="app-divider"></div>
+            <p class="app-verse-preview">"Your word is a lamp to my feet and a light to my path."</p>
+            <div class="app-ref">Psalm 119:105</div>
+            <div class="app-divider"></div>
+            <div class="app-actions-row">
+              <div class="app-btn app-btn-solid">Read</div>
+              <div class="app-btn app-btn-outline">Prayer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="badge-coming">Coming to App Stores Soon</span>
+        <div class="section-eyebrow" style="margin-top:1rem;">What It Does</div>
+        <h2 class="section-heading">Scripture that reads like a conversation, not a lecture</h2>
+        <p class="section-body">The app delivers daily devotional content grounded in Scripture. Not recycled Sunday school answers — something that actually engages with where young believers are. It reads like a friend who knows their Bible and isn't afraid to say something real.</p>
+        <div class="app-features">
+          <div class="app-feature">
+            <div class="feature-dot"></div>
+            <p>Scripture woven into the text where it belongs — not tacked on at the end</p>
+          </div>
+          <div class="app-feature">
+            <div class="feature-dot"></div>
+            <p>Daily prayer prompts and reflection questions that push past the surface</p>
+          </div>
+          <div class="app-feature">
+            <div class="feature-dot"></div>
+            <p>A 1% growth framework — small, consistent progress over time adds up</p>
+          </div>
+          <div class="app-feature">
+            <div class="feature-dot"></div>
+            <p>Built for the generation that reads everything on a phone</p>
+          </div>
+        </div>
+        <div class="store-buttons">
+          <div class="store-btn">
+            <span class="store-btn-icon">🍎</span>
+            <div class="store-btn-text">
+              <small>Coming Soon</small>
+              <strong>App Store</strong>
+            </div>
+          </div>
+          <div class="store-btn">
+            <span class="store-btn-icon">▶</span>
+            <div class="store-btn-text">
+              <small>Coming Soon</small>
+              <strong>Google Play</strong>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:1.5rem;font-size:0.88rem;color:var(--text-muted);">Sign up below and we'll let you know the moment it's available.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="section-eyebrow">Stay Connected</div>
+    <h2 class="section-heading">Be the first to know</h2>
+    <p class="section-body">Drop your email and we'll let you know when Growing in Grace goes live.</p>
+    <div class="contact-form">
+      <input type="email" placeholder="your@email.com" />
+      <button type="button">Notify Me</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Amber <span>&amp;</span> Ember</div>
+    <p>Discipling young believers.</p>
+    <p>&copy; 2025 Amber &amp; Ember Ministry</p>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

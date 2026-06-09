@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Amber &amp; Ember</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Amber <span>&amp;</span> Ember</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="content.html">Content</a>
+        <div class="dropdown-menu">
+          <a href="content.html#books">Books</a>
+          <a href="content.html#podcast">Podcast</a>
+          <a href="content.html#youtube">YouTube</a>
+        </div>
+      </li>
+      <li><a href="app.html">App</a></li>
+      <li><a href="support.html" class="active">Support</a></li>
+      <li><a href="get-involved.html">Get Involved</a></li>
+    </ul>
+    <a href="get-involved.html" class="nav-cta">Get Involved</a>
+    <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-header">
+    <div class="section-eyebrow">Support</div>
+    <h1>Support the Work</h1>
+    <p>Amber &amp; Ember operates across three areas. Each one has a real need behind it. Here's how you can be part of meeting it.</p>
+  </div>
+
+  <!-- GIVE -->
+  <section id="give">
+    <div class="section-eyebrow">Give</div>
+    <h2 class="section-heading">Give to a specific initiative</h2>
+    <p class="section-body" style="max-width:560px;">Every dollar goes directly to work. Choose the initiative you want to support. We're setting up secure payment processing now — check back soon, or use the form below to reach out directly if you want to give right now.</p>
+    <div class="support-grid" style="margin-top:3rem;">
+      <div class="support-card">
+        <span class="support-icon">🏗️</span>
+        <h3>Church Support</h3>
+        <p>Fund construction teams, pastor support, and resources for ministries that need help on the ground.</p>
+        <span class="badge-coming">Payment Coming Soon</span>
+      </div>
+      <div class="support-card">
+        <span class="support-icon">🤝</span>
+        <h3>Pro-Life Outreach</h3>
+        <p>Help fund pregnancies, support women in need, and resource the hospitals and churches doing this work.</p>
+        <span class="badge-coming">Payment Coming Soon</span>
+      </div>
+      <div class="support-card">
+        <span class="support-icon">📖</span>
+        <h3>Discipleship</h3>
+        <p>Support seminars, content development, and resources for young believers and young marriages.</p>
+        <span class="badge-coming">Payment Coming Soon</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- INITIATIVES -->
+  <section style="background:var(--cream);" id="initiatives">
+    <div class="section-eyebrow">Our Initiatives</div>
+    <h2 class="section-heading">What we're working on</h2>
+    <p class="section-body" style="max-width:560px;margin-bottom:3rem;">These are the three areas where Amber &amp; Ember is doing real work. Each one is in development, but the need is real and the work has started.</p>
+
+    <div class="initiative-detail" id="church-support">
+      <h3>🏗️&nbsp; Church Support</h3>
+      <p>A lot of pastors are doing good work with very little. We want to change that — by sending construction teams, providing funding, and meeting practical needs that fall outside what a congregation can cover on its own. The goal is to get behind what God is already doing in local churches and give it room to grow.</p>
+    </div>
+
+    <div class="initiative-detail" id="pro-life">
+      <h3>🤝&nbsp; Pro-Life Outreach</h3>
+      <p>The cost of pregnancy is one of the real reasons women choose abortion. We want to take that off the table. By working with hospitals, churches, and pro-life organizations, we're building a way to fund pregnancies directly and walk alongside women who need more than a pamphlet. This is long-term work that requires long-term funding.</p>
+    </div>
+
+    <div class="initiative-detail" id="discipleship">
+      <h3>📖&nbsp; Discipleship</h3>
+      <p>Young Christians need more than information. They need someone in their corner who can help them understand what the Bible says and how to apply it — to their marriage, their workplace, their everyday decisions. The discipleship initiative covers seminars, resources, and the content side of the ministry.</p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- REQUEST SUPPORT -->
+  <section id="request-support">
+    <div class="form-wrap">
+      <div class="section-eyebrow">Request Support</div>
+      <h2 class="section-heading">We want to hear from you</h2>
+      <p class="section-body" style="margin-bottom:2.5rem;">If you're a pastor, a ministry, or a family who could use what we offer, reach out. We're still building out the formal criteria, but if you have a real need, tell us about it. We'll be honest about what we can and can't do.</p>
+
+      <!--
+        TO ACTIVATE THIS FORM:
+        1. Go to formspree.io and create a free account
+        2. Create a new form and copy your form ID
+        3. Replace PLACEHOLDER below with your form ID (e.g. xrgvkpqz)
+      -->
+      <form action="https://formspree.io/f/PLACEHOLDER" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="type">What kind of support are you looking for?</label>
+          <select id="type" name="support_type">
+            <option value="">Select one</option>
+            <option value="church">Church or ministry support</option>
+            <option value="pro-life">Pro-life / pregnancy assistance</option>
+            <option value="discipleship">Discipleship resources</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell us about your need</label>
+          <textarea id="message" name="message" required placeholder="What's the situation? What would help?"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send Request</button>
+        <p class="form-note">We read every message. You'll hear back from Jacob directly.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Amber <span>&amp;</span> Ember</div>
+    <p>Discipling young believers.</p>
+    <p>&copy; 2025 Amber &amp; Ember Ministry</p>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

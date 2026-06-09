@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Involved — Amber &amp; Ember</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Amber <span>&amp;</span> Ember</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="content.html">Content</a>
+        <div class="dropdown-menu">
+          <a href="content.html#books">Books</a>
+          <a href="content.html#podcast">Podcast</a>
+          <a href="content.html#youtube">YouTube</a>
+        </div>
+      </li>
+      <li><a href="app.html">App</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="get-involved.html" class="active">Get Involved</a></li>
+    </ul>
+    <a href="get-involved.html" class="nav-cta">Get Involved</a>
+    <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-header">
+    <div class="section-eyebrow">Get Involved</div>
+    <h1>This work doesn't happen alone</h1>
+    <p>Three ways to be part of what Amber &amp; Ember is doing. Start wherever makes sense for you.</p>
+  </div>
+
+  <!-- THREE WAYS -->
+  <section style="background:var(--cream);">
+    <div class="involvement-grid">
+      <div class="involve-card">
+        <span class="involve-icon">🙏</span>
+        <h3>Pray With Us</h3>
+        <p>This is where everything starts. If this mission matters to you, bring it before God. Let us know you're praying and we'll keep you in the loop on what to pray for.</p>
+        <a href="#pray" class="involve-link">Tell Us You're Praying</a>
+      </div>
+      <div class="involve-card">
+        <span class="involve-icon">💛</span>
+        <h3>Give</h3>
+        <p>Fund the work — church support, pro-life outreach, discipleship content, and more. Every dollar is put to work for something real.</p>
+        <a href="support.html#give" class="involve-link">Support the Mission</a>
+      </div>
+      <div class="involve-card">
+        <span class="involve-icon">🔥</span>
+        <h3>Spread the Word</h3>
+        <p>Know a young believer, a pastor, or a church that could use this? That's the referral we're after. Share the link and let it land where it's supposed to.</p>
+        <a href="#share" class="involve-link">Share Amber &amp; Ember</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- PRAY FORM -->
+  <section id="pray">
+    <div class="form-wrap">
+      <div class="section-eyebrow">Prayer</div>
+      <h2 class="section-heading">Tell us you're praying</h2>
+      <p class="section-body" style="margin-bottom:2.5rem;">Prayer is the foundation. If you're standing with us, we want to know. We'll reach back out with specific things to bring before God as the work develops.</p>
+
+      <!--
+        TO ACTIVATE THIS FORM:
+        1. Go to formspree.io and create a free account
+        2. Create a new form and copy your form ID
+        3. Replace PLACEHOLDER below with your form ID (e.g. xrgvkpqz)
+      -->
+      <form action="https://formspree.io/f/PLACEHOLDER" method="POST">
+        <div class="form-group">
+          <label for="prayer-name">Name</label>
+          <input type="text" id="prayer-name" name="name" required placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label for="prayer-email">Email</label>
+          <input type="email" id="prayer-email" name="email" required placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="prayer-note">Anything specific you're praying for? (optional)</label>
+          <textarea id="prayer-note" name="prayer_note" placeholder="What's on your heart?"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">I'm Praying With You</button>
+        <p class="form-note">We read every message. You'll hear back from Jacob directly.</p>
+      </form>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- SHARE -->
+  <section id="share" style="background:var(--cream);text-align:center;">
+    <div class="section-eyebrow">Share</div>
+    <h2 class="section-heading">Pass it on</h2>
+    <p class="section-body" style="max-width:480px;margin:0 auto 2.5rem;">If this ministry is something you believe in, share the link. Word of mouth is still the best way to reach the right people.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <button onclick="copyLink()" class="btn-primary" id="copyBtn">Copy Link</button>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://amberandember.org" target="_blank" rel="noopener" class="btn-ghost">Share on Facebook</a>
+    </div>
+    <p id="copyConfirm" style="margin-top:1.25rem;font-size:0.85rem;color:var(--amber);display:none;">Link copied to clipboard.</p>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Amber <span>&amp;</span> Ember</div>
+    <p>Discipling young believers.</p>
+    <p>&copy; 2025 Amber &amp; Ember Ministry</p>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function copyLink() {
+      navigator.clipboard.writeText('https://amberandember.org').then(function() {
+        document.getElementById('copyConfirm').style.display = 'block';
+        document.getElementById('copyBtn').textContent = 'Copied';
+        setTimeout(function() {
+          document.getElementById('copyConfirm').style.display = 'none';
+          document.getElementById('copyBtn').textContent = 'Copy Link';
+        }, 3000);
+      });
+    }
+  </script>
+
+</body>
+</html>
