@@ -8,6 +8,63 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      margin-top: 4rem;
+      border-top: 1px solid var(--rule);
+    }
+    .hub-card {
+      padding: 3rem 3rem 3rem 0;
+      border-right: 1px solid var(--rule);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.2s;
+    }
+    .hub-card:hover { background: var(--cream); }
+    .hub-card + .hub-card { padding-left: 3rem; border-right: none; padding-right: 0; }
+    .hub-card-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+    .hub-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+    .hub-card-desc {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 1.75rem;
+    }
+    .hub-card-cta {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ember);
+      border-bottom: 1px solid rgba(139,34,21,0.3);
+      padding-bottom: 0.15rem;
+    }
+    @media (max-width: 700px) {
+      .hub-grid { grid-template-columns: 1fr; }
+      .hub-card { padding: 2.5rem 0; border-right: none; border-bottom: 1px solid var(--rule); }
+      .hub-card + .hub-card { padding-left: 0; }
+      .hub-card:last-child { border-bottom: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -15,8 +72,20 @@
     <a href="index.html" class="nav-logo">Amber <span>&amp;</span> Ember</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
-      <li><a href="nonprofits.html">Non-Profits</a></li>
-      <li><a href="education.html" class="active">Education</a></li>
+      <li class="nav-dropdown">
+        <a href="nonprofits.html">Non-Profits</a>
+        <div class="dropdown-menu">
+          <a href="church-support.html">Church Support</a>
+          <a href="pro-life.html">Pro-Life Outreach</a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <a href="education.html" class="active">Education</a>
+        <div class="dropdown-menu">
+          <a href="seminary.html">Seminary</a>
+          <a href="discipleship.html">Discipleship</a>
+        </div>
+      </li>
       <li class="nav-dropdown">
         <a href="content.html">Content</a>
         <div class="dropdown-menu">
@@ -40,17 +109,25 @@
   </nav>
 
   <div class="page-header">
-    <div class="section-eyebrow">Seminary</div>
-    <h1>Education</h1>
-    <p>Deep-dive Bible studies for those who want to understand, not merely read. This page is being built out — content coming soon.</p>
+    <div class="section-eyebrow">Education</div>
+    <h1>Learn the Bible</h1>
+    <p>Two tracks — one for deep study, one for daily application. Select one to learn more.</p>
   </div>
 
   <section>
-    <div style="max-width:65ch;">
-      <div class="section-eyebrow">What This Is</div>
-      <h2 class="section-heading">Serious study for serious students</h2>
-      <p class="section-body">Most Bible content is built for the surface level. The Amber &amp; Ember seminary is being built for the people who want to go deeper — who want to understand the history, the language, the context, and the argument the Scripture is actually making. Not a devotional. A course of study.</p>
-      <p class="section-body" style="margin-top:1.25rem;">More details on structure, topics, and how to enroll are coming. Drop your email on the home page and we will let you know when it is ready.</p>
+    <div class="hub-grid">
+      <a href="seminary.html" class="hub-card">
+        <div class="hub-card-label">Deep Study</div>
+        <div class="hub-card-title">Seminary</div>
+        <p class="hub-card-desc">Deep-dive Bible studies for serious students who want to understand Scripture — the history, the language, the context, and the argument the text is actually making.</p>
+        <span class="hub-card-cta">Learn More</span>
+      </a>
+      <a href="discipleship.html" class="hub-card">
+        <div class="hub-card-label">Practical Teaching</div>
+        <div class="hub-card-title">Discipleship</div>
+        <p class="hub-card-desc">Teaching built for young believers learning to apply Scripture to real life — marriage, work, decisions, and what it actually means to grow as a Christian.</p>
+        <span class="hub-card-cta">Learn More</span>
+      </a>
     </div>
   </section>
 
