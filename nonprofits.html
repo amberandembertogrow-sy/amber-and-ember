@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Non-Profits — Amber &amp; Ember</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Amber <span>&amp;</span> Ember</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="nonprofits.html" class="active">Non-Profits</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li class="nav-dropdown">
+        <a href="content.html">Content</a>
+        <div class="dropdown-menu">
+          <a href="content.html#books">Books</a>
+          <a href="content.html#podcast">Podcast</a>
+          <a href="content.html#youtube">YouTube</a>
+        </div>
+      </li>
+      <li><a href="app.html">App</a></li>
+      <li class="nav-dropdown">
+        <a href="support.html">Support</a>
+        <div class="dropdown-menu">
+          <a href="support.html">Give</a>
+          <a href="get-involved.html">Get Involved</a>
+        </div>
+      </li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-header">
+    <div class="section-eyebrow">Outreach</div>
+    <h1>Non-Profits</h1>
+    <p>Charitable work alongside local churches and pro-life partners. This page is being built out — content coming soon.</p>
+  </div>
+
+  <section style="background:var(--cream);">
+    <div class="initiative-detail" id="church-support">
+      <h3>Church Support</h3>
+      <p>A lot of pastors are doing good work with very little. We want to change that — by sending construction teams, providing funding, and meeting practical needs that fall outside what a congregation can cover on its own. The goal is to get behind what God is already doing in local churches and give it room to grow.</p>
+    </div>
+    <div class="initiative-detail" id="pro-life">
+      <h3>Pro-Life Outreach</h3>
+      <p>The cost of pregnancy is one of the real reasons women choose abortion. We want to take that off the table. By working with hospitals, churches, and pro-life organizations, we are building a way to fund pregnancies directly and walk alongside women who need more than a pamphlet. This is long-term work that requires long-term funding.</p>
+    </div>
+  </section>
+
+  <footer style="background:var(--charcoal);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <a href="index.html" style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(250,246,238,0.5);text-decoration:none;">Amber <span style="color:var(--amber);">&amp;</span> Ember</a>
+    <p style="font-size:0.75rem;color:rgba(250,246,238,0.25);">&copy; 2025 Amber &amp; Ember Ministry</p>
+  </footer>
+
+  <script>
+    function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+  </script>
+</body>
+</html>
