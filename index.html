@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amber & Ember — Discipling Young Believers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --amber: #C97B2E;
+      --amber-light: #E8A84A;
+      --ember: #8B2215;
+      --ember-deep: #5C1A10;
+      --cream: #FAF6EE;
+      --warm-white: #FDF9F3;
+      --charcoal: #1C1917;
+      --text-body: #3D3530;
+      --text-muted: #8A7E76;
+      --rule: rgba(201,123,46,0.25);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--text-body); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 4rem;
+      background: rgba(253,249,243,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; letter-spacing: 0.04em; color: var(--charcoal); }
+    .nav-logo span { color: var(--amber); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--amber); }
+    .nav-cta { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.65rem 1.5rem; background: var(--ember); color: var(--cream); border: none; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--ember-deep); }
+
+    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 8rem 4rem 5rem; }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 85% 40%, rgba(201,123,46,0.1) 0%, transparent 65%),
+                  radial-gradient(ellipse 40% 50% at 15% 70%, rgba(139,34,21,0.07) 0%, transparent 60%),
+                  var(--warm-white);
+    }
+    .hero-rule { position: absolute; top: 0; bottom: 0; right: 38%; width: 1px; background: linear-gradient(to bottom, transparent, var(--rule) 20%, var(--rule) 80%, transparent); }
+    .hero-content { position: relative; z-index: 2; max-width: 680px; }
+    .hero-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; animation: fadeUp 0.7s ease both; }
+    .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--amber); }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 7vw, 6rem); font-weight: 300; line-height: 1.05; color: var(--charcoal); margin-bottom: 2rem; animation: fadeUp 0.7s 0.1s ease both; }
+    .hero h1 em { font-style: italic; color: var(--ember); }
+    .hero-body { font-size: 1.05rem; line-height: 1.75; color: var(--text-muted); max-width: 480px; margin-bottom: 2.5rem; font-weight: 300; animation: fadeUp 0.7s 0.2s ease both; }
+    .hero-actions { display: flex; gap: 1.25rem; align-items: center; animation: fadeUp 0.7s 0.3s ease both; }
+    .btn-primary { display: inline-block; padding: 0.9rem 2rem; background: var(--ember); color: var(--cream); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--ember-deep); }
+    .btn-ghost { display: inline-block; padding: 0.9rem 2rem; border: 1px solid var(--amber); color: var(--amber); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.2s; }
+    .btn-ghost:hover { background: var(--amber); color: var(--cream); }
+    .hero-right { position: absolute; right: 0; top: 0; bottom: 0; width: 38%; display: flex; align-items: center; justify-content: center; padding: 2rem; animation: fadeUp 0.7s 0.4s ease both; }
+    .hero-verse { text-align: center; padding: 3rem 2.5rem; }
+    .hero-verse blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; font-style: italic; line-height: 1.6; color: var(--charcoal); margin-bottom: 1rem; }
+    .hero-verse cite { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); font-style: normal; }
+    .flame-icon { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
+
+    section { padding: 7rem 4rem; }
+    .section-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 1rem; }
+    .section-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.15; color: var(--charcoal); margin-bottom: 1.5rem; }
+    .section-body { font-size: 1rem; line-height: 1.8; color: var(--text-muted); font-weight: 300; }
+    hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
+
+    .mission { background: var(--charcoal); color: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .mission .section-heading { color: var(--cream); }
+    .mission .section-body { color: rgba(250,246,238,0.65); }
+    .mission .section-eyebrow { color: var(--amber-light); }
+    .mission-pillars { display: flex; flex-direction: column; gap: 2rem; }
+    .pillar { display: flex; gap: 1.25rem; align-items: flex-start; }
+    .pillar-number { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--amber); line-height: 1; flex-shrink: 0; width: 2.5rem; }
+    .pillar-text h3 { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; color: var(--cream); margin-bottom: 0.4rem; }
+    .pillar-text p { font-size: 0.9rem; line-height: 1.7; color: rgba(250,246,238,0.55); font-weight: 300; }
+
+    .what-we-do { background: var(--cream); }
+    .what-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+    .what-header-left { max-width: 500px; }
+    .initiatives-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .initiative-card { background: var(--warm-white); padding: 2.5rem; border-top: 2px solid transparent; transition: border-color 0.2s, background 0.2s; }
+    .initiative-card:hover { border-top-color: var(--amber); background: #fff; }
+    .initiative-icon { font-size: 1.8rem; margin-bottom: 1.25rem; display: block; }
+    .initiative-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.75rem; }
+    .initiative-card p { font-size: 0.88rem; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+
+    .app-section { background: var(--warm-white); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .phone-mock { background: var(--charcoal); border-radius: 2.5rem; padding: 2.5rem 1.75rem; max-width: 280px; margin: 0 auto; box-shadow: 0 40px 80px rgba(28,25,23,0.25); position: relative; }
+    .phone-mock::before { content: ''; display: block; width: 5rem; height: 0.35rem; background: rgba(255,255,255,0.1); border-radius: 99px; margin: 0 auto 2rem; }
+    .phone-screen-content { background: var(--ember-deep); border-radius: 1.25rem; padding: 1.5rem; text-align: center; }
+    .app-date { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(250,246,238,0.5); margin-bottom: 0.5rem; }
+    .app-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--cream); margin-bottom: 1rem; }
+    .app-divider { height: 1px; background: rgba(201,123,46,0.3); margin: 1rem 0; }
+    .app-verse-preview { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-style: italic; color: rgba(250,246,238,0.8); line-height: 1.55; margin-bottom: 0.5rem; }
+    .app-ref { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber-light); }
+    .app-actions-row { display: flex; gap: 0.5rem; margin-top: 1.25rem; }
+    .app-btn { flex: 1; padding: 0.6rem; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; border-radius: 0.4rem; }
+    .app-btn-solid { background: var(--amber); color: var(--cream); }
+    .app-btn-outline { border: 1px solid rgba(201,123,46,0.4); color: var(--amber-light); }
+    .floating-tag { position: absolute; right: -2rem; top: 35%; background: var(--amber); color: var(--cream); padding: 0.6rem 1rem; font-size: 0.7rem; font-weight: 500; border-radius: 0.25rem; white-space: nowrap; box-shadow: 0 8px 24px rgba(201,123,46,0.3); }
+    .app-features { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2.5rem; }
+    .app-feature { display: flex; gap: 1rem; align-items: flex-start; }
+    .feature-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); flex-shrink: 0; margin-top: 0.55rem; }
+    .app-feature p { font-size: 0.9rem; line-height: 1.65; color: var(--text-muted); font-weight: 300; }
+
+    .involvement { background: var(--cream); }
+    .involvement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+    .involve-card { padding: 2.5rem; border: 1px solid var(--rule); background: var(--warm-white); text-align: center; transition: box-shadow 0.2s; }
+    .involve-card:hover { box-shadow: 0 12px 40px rgba(201,123,46,0.1); }
+    .involve-icon { font-size: 2rem; margin-bottom: 1.25rem; display: block; }
+    .involve-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.75rem; }
+    .involve-card p { font-size: 0.88rem; line-height: 1.7; color: var(--text-muted); font-weight: 300; margin-bottom: 1.5rem; }
+    .involve-link { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ember); text-decoration: none; border-bottom: 1px solid rgba(139,34,21,0.3); padding-bottom: 0.15rem; transition: border-color 0.2s; }
+    .involve-link:hover { border-color: var(--ember); }
+
+    .contact { background: var(--ember-deep); text-align: center; padding: 8rem 4rem; }
+    .contact .section-eyebrow { color: var(--amber-light); margin-bottom: 1rem; }
+    .contact .section-heading { color: var(--cream); margin-bottom: 1rem; }
+    .contact .section-body { color: rgba(250,246,238,0.6); max-width: 500px; margin: 0 auto 2.5rem; }
+    .contact-form { display: flex; gap: 0.75rem; max-width: 420px; margin: 0 auto; }
+    .contact-form input { flex: 1; padding: 0.85rem 1.25rem; background: rgba(250,246,238,0.08); border: 1px solid rgba(250,246,238,0.2); color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none; transition: border-color 0.2s; }
+    .contact-form input::placeholder { color: rgba(250,246,238,0.35); }
+    .contact-form input:focus { border-color: var(--amber); }
+    .contact-form button { padding: 0.85rem 1.5rem; background: var(--amber); border: none; color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+    .contact-form button:hover { background: var(--amber-light); }
+
+    footer { background: var(--charcoal); padding: 2rem 4rem; display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(250,246,238,0.5); }
+    .footer-logo span { color: var(--amber); }
+    footer p { font-size: 0.75rem; color: rgba(250,246,238,0.25); letter-spacing: 0.05em; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 5rem 1.5rem; }
+      hr.rule { margin: 0 1.5rem; }
+      .hero { padding: 7rem 1.5rem 5rem; }
+      .hero-right { display: none; }
+      .mission { grid-template-columns: 1fr; gap: 3rem; }
+      .what-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .initiatives-grid { grid-template-columns: 1fr; gap: 2px; }
+      .app-section { grid-template-columns: 1fr; gap: 3rem; }
+      .floating-tag { display: none; }
+      .involvement-grid { grid-template-columns: 1fr; }
+      .contact-form { flex-direction: column; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Amber <span>&</span> Ember</div>
+    <ul class="nav-links">
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#what-we-do">Initiatives</a></li>
+      <li><a href="#app">Devotional App</a></li>
+      <li><a href="#get-involved">Get Involved</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Stay Connected</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-rule"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">A Ministry for Young Believers</div>
+      <h1>Faith that <em>holds</em><br>in a modern world</h1>
+      <p class="hero-body">Amber &amp; Ember exists to walk alongside young Christians — to disciple, equip, and encourage the generation navigating what it means to follow Christ in real life.</p>
+      <div class="hero-actions">
+        <a href="#mission" class="btn-primary">Our Mission</a>
+        <a href="#get-involved" class="btn-ghost">Get Involved</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-verse">
+        <span class="flame-icon">🕯️</span>
+        <blockquote>"Train up a child in the way he should go: and when he is old, he will not depart from it."</blockquote>
+        <cite>Proverbs 22:6</cite>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section class="mission" id="mission">
+    <div>
+      <div class="section-eyebrow">Why We Exist</div>
+      <h2 class="section-heading">Discipleship is more than a Sunday morning</h2>
+      <p class="section-body">Young Christians today face a culture that challenges everything — their identity, their values, their faith. Amber &amp; Ember was built to meet them where they are, offering real discipleship rooted in Scripture and applied to everyday life. We come alongside the local church. We don't replace it.</p>
+    </div>
+    <div class="mission-pillars">
+      <div class="pillar">
+        <div class="pillar-number">01</div>
+        <div class="pillar-text">
+          <h3>Ground Them in the Word</h3>
+          <p>Daily devotional content, Scripture-rich teaching, and tools that make Bible engagement a habit — not a chore.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number">02</div>
+        <div class="pillar-text">
+          <h3>Strengthen Young Marriages</h3>
+          <p>Biblical marriage isn't just countercultural — it's worth protecting. Resources for young couples navigating real life together.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number">03</div>
+        <div class="pillar-text">
+          <h3>Support the Local Church</h3>
+          <p>We partner with pastors and ministries — funding where we can, serving where we're needed, and never stepping on what God is already doing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section class="what-we-do" id="what-we-do">
+    <div class="what-header">
+      <div class="what-header-left">
+        <div class="section-eyebrow">Our Initiatives</div>
+        <h2 class="section-heading">Many tools.<br>One mission.</h2>
+      </div>
+      <p style="max-width:320px;font-size:0.9rem;line-height:1.75;color:var(--text-muted);font-weight:300;">Discipleship looks different at different stages. We build the tools and platforms that meet young believers wherever they are.</p>
+    </div>
+    <div class="initiatives-grid">
+      <div class="initiative-card">
+        <span class="initiative-icon">📱</span>
+        <h3>Devotional App</h3>
+        <p>AI-powered daily devotionals with inline Scripture, prayer prompts, and a 1% improvement framework. Built to feel personal, not generic.</p>
+      </div>
+      <div class="initiative-card">
+        <span class="initiative-icon">🎙️</span>
+        <h3>Podcast</h3>
+        <p>Modern issues. Biblical standards. A group of men talking honestly about what it means to live as a Christian in the workplace and at home.</p>
+      </div>
+      <div class="initiative-card">
+        <span class="initiative-icon">🎬</span>
+        <h3>YouTube Channel</h3>
+        <p>Visualized historical and cultural context for every Book of the Bible — making Scripture come alive with accuracy and depth.</p>
+      </div>
+      <div class="initiative-card">
+        <span class="initiative-icon">📖</span>
+        <h3>Publishing</h3>
+        <p>Books on Christian liberty, righteous manhood, biblical fundamentals, and slowing down in a culture that never stops moving.</p>
+      </div>
+      <div class="initiative-card">
+        <span class="initiative-icon">🏗️</span>
+        <h3>Church Support</h3>
+        <p>Practical support for pastors and ministries — construction services, funding, and teams willing to show up and do the work.</p>
+      </div>
+      <div class="initiative-card">
+        <span class="initiative-icon">🤝</span>
+        <h3>Pro-Life Outreach</h3>
+        <p>Partnering with hospitals, churches, and pro-life organizations to walk alongside women who need support, not judgment.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section class="app-section" id="app">
+    <div style="position:relative;">
+      <div class="phone-mock">
+        <div class="phone-screen-content">
+          <div class="app-date">Today's Devotional</div>
+          <div class="app-title">Walking in the Light</div>
+          <div class="app-divider"></div>
+          <p class="app-verse-preview">"Your word is a lamp to my feet and a light to my path."</p>
+          <div class="app-ref">Psalm 119:105</div>
+          <div class="app-divider"></div>
+          <div class="app-actions-row">
+            <div class="app-btn app-btn-solid">Read</div>
+            <div class="app-btn app-btn-outline">Prayer</div>
+          </div>
+        </div>
+      </div>
+      <div class="floating-tag">✦ Daily at 6am</div>
+    </div>
+    <div>
+      <div class="section-eyebrow">The Devotional App</div>
+      <h2 class="section-heading">Scripture that reads like a conversation, not a lecture</h2>
+      <p class="section-body">Our app delivers daily devotional content grounded in Scripture — a thoughtful, essay-style reading experience that meets young believers where they are. Not a bot recycling Sunday school answers. Something that actually resonates.</p>
+      <div class="app-features">
+        <div class="app-feature">
+          <div class="feature-dot"></div>
+          <p>Scripture woven inline — mid-thought, where it belongs, not appended like an afterthought</p>
+        </div>
+        <div class="app-feature">
+          <div class="feature-dot"></div>
+          <p>Daily prayer prompts, reflection questions, and a 1% growth framework</p>
+        </div>
+        <div class="app-feature">
+          <div class="feature-dot"></div>
+          <p>Peer-to-peer tone — the friend who knows their Bible and isn't afraid to say something real</p>
+        </div>
+        <div class="app-feature">
+          <div class="feature-dot"></div>
+          <p>Built for the generation that reads everything on a phone</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section class="involvement" id="get-involved">
+    <div class="section-eyebrow">Get Involved</div>
+    <h2 class="section-heading">This work doesn't happen alone</h2>
+    <div class="involvement-grid">
+      <div class="involve-card">
+        <span class="involve-icon">🙏</span>
+        <h3>Pray With Us</h3>
+        <p>Every initiative starts here. If this mission resonates, the first and most important thing you can do is bring it before God.</p>
+        <a href="#contact" class="involve-link">Join the Prayer List</a>
+      </div>
+      <div class="involve-card">
+        <span class="involve-icon">💛</span>
+        <h3>Give</h3>
+        <p>Fund devotional content, church support teams, pro-life outreach, and more. Every gift is put to work for the Kingdom.</p>
+        <a href="#contact" class="involve-link">Support the Mission</a>
+      </div>
+      <div class="involve-card">
+        <span class="involve-icon">🔥</span>
+        <h3>Spread the Word</h3>
+        <p>Know a young believer, a pastor, a church, or a family that could use this? That's the referral we're after.</p>
+        <a href="#contact" class="involve-link">Share Amber &amp; Ember</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section-eyebrow">Stay Connected</div>
+    <h2 class="section-heading">Be the first to know</h2>
+    <p class="section-body">The app is in development. The podcast is coming. The work is happening. Drop your email and we'll keep you in the loop — no noise, just news worth reading.</p>
+    <div class="contact-form">
+      <input type="email" placeholder="your@email.com" />
+      <button type="button">Sign Up</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Amber <span>&</span> Ember</div>
+    <p>Discipling young believers. One day at a time.</p>
+    <p>&copy; 2025 Amber &amp; Ember Ministry</p>
+  </footer>
+
+</body>
+</html>
