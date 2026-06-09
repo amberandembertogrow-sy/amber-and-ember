@@ -8,6 +8,86 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .prayer-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .prayer-cat-btn {
+      padding: 0.5rem 1rem;
+      border: 1px solid rgba(201,123,46,0.4);
+      background: transparent;
+      color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .prayer-cat-btn:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+    .prayer-cat-btn.selected {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: var(--cream);
+    }
+    .prayer-submit {
+      margin-top: 0.5rem;
+    }
+    .prayer-board {
+      margin-top: 3.5rem;
+    }
+    .prayer-board-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.5rem;
+    }
+    .prayer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .prayer-entry {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.85rem 1.1rem;
+      background: var(--warm-white);
+      border-left: 2px solid var(--amber);
+    }
+    .prayer-entry-text {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      font-weight: 300;
+      flex: 1;
+    }
+    .prayer-entry-text strong {
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+    .prayer-entry-time {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .prayer-empty {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .prayer-board-status {
+      font-size: 0.82rem;
+      color: var(--amber);
+      margin-top: 0.5rem;
+      min-height: 1.2em;
+    }
+  </style>
 </head>
 <body>
 
@@ -63,8 +143,8 @@
     <div class="involvement-grid" style="grid-template-columns: repeat(2, 1fr);">
       <div class="involve-card">
         <h3>Pray With Us</h3>
-        <p>This is where everything starts. If this mission matters to you, bring it before God. Let us know you're praying and we'll keep you in the loop on what to pray for.</p>
-        <a href="#pray" class="involve-link">Tell Us You're Praying</a>
+        <p>This is where everything starts. Pick what you're praying for and add your name to the board. Every visitor sees who's standing with this ministry in prayer.</p>
+        <a href="#pray" class="involve-link">Join the Prayer Board</a>
       </div>
       <div class="involve-card">
         <h3>Spread the Word</h3>
@@ -76,35 +156,52 @@
 
   <hr class="rule" />
 
-  <!-- PRAY FORM -->
-  <section id="pray">
-    <div class="form-wrap">
-      <div class="section-eyebrow">Prayer</div>
-      <h2 class="section-heading">Tell us you're praying</h2>
-      <p class="section-body" style="margin-bottom:2.5rem;">Prayer is the foundation. If you're standing with us, we want to know. We'll reach back out with specific things to bring before God as the work develops.</p>
+  <!-- PRAYER BOARD -->
+  <!--
+    SETUP REQUIRED — Supabase Prayer Board
+    =======================================
+    1. Go to supabase.com and create a free account
+    2. Create a new project
+    3. In the SQL editor, run this to create the table and set permissions:
 
-      <!--
-        TO ACTIVATE THIS FORM:
-        1. Go to formspree.io and create a free account
-        2. Create a new form and copy your form ID
-        3. Replace PLACEHOLDER below with your form ID (e.g. xrgvkpqz)
-      -->
-      <form action="https://formspree.io/f/PLACEHOLDER" method="POST">
-        <div class="form-group">
-          <label for="prayer-name">Name</label>
-          <input type="text" id="prayer-name" name="name" required placeholder="Your name" />
-        </div>
-        <div class="form-group">
-          <label for="prayer-email">Email</label>
-          <input type="email" id="prayer-email" name="email" required placeholder="your@email.com" />
-        </div>
-        <div class="form-group">
-          <label for="prayer-note">Anything specific you're praying for? (optional)</label>
-          <textarea id="prayer-note" name="prayer_note" placeholder="What's on your heart?"></textarea>
-        </div>
-        <button type="submit" class="btn-primary">I'm Praying With You</button>
-        <p class="form-note">We read every message. You'll hear back from Jacob directly.</p>
-      </form>
+       create table prayers (
+         id bigint generated always as identity primary key,
+         created_at timestamptz default now() not null,
+         category text not null
+       );
+       alter table prayers enable row level security;
+       create policy "Anyone can read prayers" on prayers for select using (true);
+       create policy "Anyone can post prayers" on prayers for insert with check (true);
+
+    4. Go to Project Settings > API and copy:
+       - Project URL  → replace SUPABASE_URL below
+       - anon / public key  → replace SUPABASE_ANON_KEY below
+  -->
+  <section id="pray">
+    <div class="section-eyebrow">Prayer Board</div>
+    <h2 class="section-heading">Stand with us in prayer</h2>
+    <p class="section-body" style="max-width:52ch;margin-bottom:2.5rem;">Pick what you're praying for and post it. Your entry goes on the board immediately and every visitor can see who's praying and for what.</p>
+
+    <div class="prayer-categories" id="categoryBtns">
+      <button class="prayer-cat-btn" data-cat="Church Support Initiative">Church Support Initiative</button>
+      <button class="prayer-cat-btn" data-cat="Pro-Life Outreach">Pro-Life Outreach</button>
+      <button class="prayer-cat-btn" data-cat="Discipleship Program">Discipleship Program</button>
+      <button class="prayer-cat-btn" data-cat="Seminary">Seminary</button>
+      <button class="prayer-cat-btn" data-cat="Books &amp; Publishing">Books &amp; Publishing</button>
+      <button class="prayer-cat-btn" data-cat="Podcast">Podcast</button>
+      <button class="prayer-cat-btn" data-cat="YouTube Channel">YouTube Channel</button>
+      <button class="prayer-cat-btn" data-cat="Growing in Grace App">Growing in Grace App</button>
+      <button class="prayer-cat-btn" data-cat="The Ministry">The Ministry</button>
+    </div>
+
+    <button class="btn-primary prayer-submit" id="prayerSubmit" disabled>I'm Praying for This</button>
+    <p class="prayer-board-status" id="prayerStatus"></p>
+
+    <div class="prayer-board">
+      <div class="prayer-board-label">Who's praying</div>
+      <div class="prayer-list" id="prayerList">
+        <p class="prayer-empty">Loading prayers...</p>
+      </div>
     </div>
   </section>
 
@@ -123,12 +220,100 @@
   </section>
 
   <footer>
-    <div class="footer-logo">Amber <span>&amp;</span> Ember</div>
+    <div class="footer-logo">Amber &amp; Ember</div>
     <p>Discipling young believers.</p>
     <p>&copy; 2025 Amber &amp; Ember Ministry</p>
   </footer>
 
   <script>
+    // ── Supabase config ──────────────────────────────────────────────
+    var SUPABASE_URL = 'SUPABASE_URL';        // e.g. https://abcxyz.supabase.co
+    var SUPABASE_ANON_KEY = 'SUPABASE_ANON_KEY';  // your project's anon/public key
+    // ────────────────────────────────────────────────────────────────
+
+    var selectedCategory = null;
+
+    // Category button selection
+    document.getElementById('categoryBtns').addEventListener('click', function(e) {
+      var btn = e.target.closest('.prayer-cat-btn');
+      if (!btn) return;
+      document.querySelectorAll('.prayer-cat-btn').forEach(function(b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
+      selectedCategory = btn.getAttribute('data-cat');
+      document.getElementById('prayerSubmit').disabled = false;
+    });
+
+    // Submit prayer
+    document.getElementById('prayerSubmit').addEventListener('click', function() {
+      if (!selectedCategory) return;
+      var btn = this;
+      btn.disabled = true;
+      btn.textContent = 'Posting...';
+      var status = document.getElementById('prayerStatus');
+
+      fetch(SUPABASE_URL + '/rest/v1/prayers', {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ category: selectedCategory })
+      })
+      .then(function(res) {
+        if (!res.ok) throw new Error();
+        status.textContent = 'Posted. Thank you for praying.';
+        btn.textContent = "I'm Praying for This";
+        document.querySelectorAll('.prayer-cat-btn').forEach(function(b) { b.classList.remove('selected'); });
+        selectedCategory = null;
+        loadPrayers();
+      })
+      .catch(function() {
+        status.textContent = 'Something went wrong. Please try again.';
+        btn.disabled = false;
+        btn.textContent = "I'm Praying for This";
+      });
+    });
+
+    // Load and display prayers
+    function timeAgo(dateStr) {
+      var diff = Math.floor((Date.now() - new Date(dateStr)) / 1000);
+      if (diff < 60) return 'just now';
+      if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+      if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+      return Math.floor(diff / 86400) + 'd ago';
+    }
+
+    function loadPrayers() {
+      fetch(SUPABASE_URL + '/rest/v1/prayers?select=category,created_at&order=created_at.desc&limit=50', {
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY
+        }
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        var list = document.getElementById('prayerList');
+        if (!data || data.length === 0) {
+          list.innerHTML = '<p class="prayer-empty">No prayers yet. Be the first.</p>';
+          return;
+        }
+        list.innerHTML = data.map(function(p) {
+          return '<div class="prayer-entry">' +
+            '<span class="prayer-entry-text">Anonymous is praying for <strong>' + p.category + '</strong></span>' +
+            '<span class="prayer-entry-time">' + timeAgo(p.created_at) + '</span>' +
+            '</div>';
+        }).join('');
+      })
+      .catch(function() {
+        document.getElementById('prayerList').innerHTML = '<p class="prayer-empty">Could not load prayers right now.</p>';
+      });
+    }
+
+    loadPrayers();
+
+    // Nav and share
     function toggleNav() {
       document.getElementById('navLinks').classList.toggle('open');
     }
