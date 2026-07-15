@@ -61,6 +61,10 @@
       animation: fadeUp 0.6s 0.2s ease both;
     }
     .hp-hero-cta { animation: fadeUp 0.6s 0.3s ease both; }
+    .hp-hero-cite {
+      display: block; margin-top: 0.75rem; font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber-light);
+    }
 
     /* Mission */
     .hp-mission {
@@ -76,6 +80,14 @@
       margin-bottom: 1.1rem;
     }
     .hp-mission p:last-of-type { margin-bottom: 0; }
+    .hp-mission-pillars { display: flex; flex-direction: column; gap: 1.75rem; margin-bottom: 2.5rem; }
+    .hp-mission-pillar { display: flex; gap: 1.25rem; align-items: flex-start; }
+    .hp-mission-pillar-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300;
+      color: var(--amber); line-height: 1; flex-shrink: 0; width: 2rem;
+    }
+    .hp-mission-pillar-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.4rem; }
+    .hp-mission-pillar-text p { font-size: 0.92rem; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
     .hp-scripture {
       margin-top: 3rem;
       padding-top: 2rem;
@@ -112,7 +124,7 @@
     }
     .hp-work-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       border-top: 1px solid var(--rule);
     }
     .hp-pillar {
@@ -372,8 +384,7 @@
       .hp-email-form { width: 100%; }
       .hp-work-grid { grid-template-columns: 1fr 1fr; }
       .hp-pillar:nth-child(2) { border-right: none; }
-      .hp-pillar:nth-child(3) { border-right: 1px solid var(--rule); }
-      .hp-pillar:nth-child(3), .hp-pillar:nth-child(4) { border-top: 1px solid var(--rule); }
+      .hp-pillar:nth-child(3) { border-top: 1px solid var(--rule); padding-top: 2.5rem; }
       .hp-join-links { gap: 2.5rem; }
       .hp-footer { padding: 2.5rem 1.5rem; }
       .hp-footer-nav { gap: 1.5rem; }
@@ -393,13 +404,6 @@
     <a href="index.html" class="nav-logo">Amber <span>&amp;</span> Ember</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
-      <li class="nav-dropdown">
-        <a href="nonprofits.html">Non-Profits</a>
-        <div class="dropdown-menu">
-          <a href="church-support.html">Church Support</a>
-          <a href="pro-life.html">Pro-Life Outreach</a>
-        </div>
-      </li>
       <li class="nav-dropdown">
         <a href="education.html">Education</a>
         <div class="dropdown-menu">
@@ -421,6 +425,7 @@
         <a href="support.html">Support</a>
         <div class="dropdown-menu">
           <a href="give.html">Give</a>
+          <a href="receive-support.html">Receive Support</a>
           <a href="get-involved.html">Get Involved</a>
         </div>
       </li>
@@ -435,8 +440,8 @@
     <div class="hp-hero-inner">
       <img src="image_fb81ea3.png" alt="Amber &amp; Ember" style="height:120px;display:block;margin-bottom:2rem;opacity:0.92;" />
       <div class="hp-eyebrow">A Ministry for Young Believers</div>
-      <h1>Faith that <em>holds</em><br>in a modern world</h1>
-      <p class="hp-hero-sub">Discipleship grounded in Scripture, built for the life young believers are actually living.</p>
+      <h1>Developing Faith that <em>Works</em></h1>
+      <p class="hp-hero-sub">"Even so faith, if it hath not works, is dead, being alone."<span class="hp-hero-cite">James 2:17, KJV</span></p>
       <div class="hp-hero-cta">
         <a href="#the-work" class="btn-primary">See the Work</a>
       </div>
@@ -448,7 +453,29 @@
     <div class="hp-mission-layout">
       <img src="mission-section.png" class="hp-mission-img" alt="A family caring for a newborn" />
       <div class="hp-mission-inner">
-        <p>Young Christians face a culture that pushes hard on everything they believe. Amber &amp; Ember was built to come alongside them, with teaching, tools, and real partnerships that reach into the places Sunday morning cannot. We don't replace the local church. We work with it.</p>
+        <div class="hp-mission-pillars">
+          <div class="hp-mission-pillar">
+            <span class="hp-mission-pillar-num">01</span>
+            <div class="hp-mission-pillar-text">
+              <h3>Understand Scripture</h3>
+              <p>Not skimmed, not assumed — studied carefully, with the tools to know what a passage actually says.</p>
+            </div>
+          </div>
+          <div class="hp-mission-pillar">
+            <span class="hp-mission-pillar-num">02</span>
+            <div class="hp-mission-pillar-text">
+              <h3>Challenge each other</h3>
+              <p>Discipleship isn't a solo project. Peers who ask hard questions and push back when it's needed.</p>
+            </div>
+          </div>
+          <div class="hp-mission-pillar">
+            <span class="hp-mission-pillar-num">03</span>
+            <div class="hp-mission-pillar-text">
+              <h3>Live it out</h3>
+              <p>The app, the podcast, the books, the seminary — all built toward one thing: a faith that changes how you live.</p>
+            </div>
+          </div>
+        </div>
         <div class="hp-scripture">
           "Train up a child in the way he should go: and when he is old, he will not depart from it."
           <cite>Proverbs 22:6, KJV</cite>
@@ -461,12 +488,6 @@
   <section class="hp-work" id="the-work">
     <div class="hp-work-label">The Work</div>
     <div class="hp-work-grid">
-      <div class=”hp-pillar”>
-        <img src=”work-outreach.png” class=”hp-pillar-img” alt=”Construction crew serving a church” />
-        <div class=”hp-pillar-name”>Outreach</div>
-        <p class=”hp-pillar-desc”>Charitable work alongside local churches and pro-life partners, where real need meets real support.</p>
-        <a href=”nonprofits.html” class=”hp-pillar-link”>View Initiatives</a>
-      </div>
       <div class=”hp-pillar”>
         <img src=”work-content.png” class=”hp-pillar-img” alt=”Bible and microphone on a desk” />
         <div class=”hp-pillar-name”>Content</div>
@@ -532,7 +553,6 @@
         <p class="hp-footer-tagline">Discipling young believers.</p>
       </div>
       <nav class="hp-footer-nav">
-        <a href="nonprofits.html">Non-Profits</a>
         <a href="education.html">Education</a>
         <a href="content.html">Content</a>
         <a href="app.html">App</a>

@@ -97,13 +97,6 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li class="nav-dropdown">
-        <a href="nonprofits.html">Non-Profits</a>
-        <div class="dropdown-menu">
-          <a href="church-support.html">Church Support</a>
-          <a href="pro-life.html">Pro-Life Outreach</a>
-        </div>
-      </li>
-      <li class="nav-dropdown">
         <a href="education.html">Education</a>
         <div class="dropdown-menu">
           <a href="seminary.html">Seminary</a>
@@ -124,6 +117,7 @@
         <a href="support.html">Support</a>
         <div class="dropdown-menu">
           <a href="give.html">Give</a>
+          <a href="receive-support.html">Receive Support</a>
           <a href="get-involved.html" class="active">Get Involved</a>
         </div>
       </li>
@@ -137,16 +131,21 @@
   <div class="page-header">
     <div class="section-eyebrow">Get Involved</div>
     <h1>This work doesn't happen alone</h1>
-    <p>Two ways to be part of what Amber &amp; Ember is doing.</p>
+    <p>Three ways to be part of what Amber &amp; Ember is doing.</p>
   </div>
 
-  <!-- TWO WAYS -->
+  <!-- WAYS TO HELP -->
   <section style="background:var(--cream);">
-    <div class="involvement-grid" style="grid-template-columns: repeat(2, 1fr);">
+    <div class="involvement-grid">
       <div class="involve-card">
         <h3>Pray With Us</h3>
         <p>This is where everything starts. Pick what you're praying for and add your name to the board. Every visitor sees who's standing with this ministry in prayer.</p>
         <a href="#pray" class="involve-link">Join the Prayer Board</a>
+      </div>
+      <div class="involve-card">
+        <h3>Join the Repair Team</h3>
+        <p>We put together crews to help churches with hands-on construction and repair work. Bring your skills, or just your willingness to show up and help.</p>
+        <a href="#join-team" class="involve-link">Apply to Join</a>
       </div>
       <div class="involve-card">
         <h3>Spread the Word</h3>
@@ -186,7 +185,6 @@
 
     <div class="prayer-categories" id="categoryBtns">
       <button class="prayer-cat-btn" data-cat="Church Support Initiative">Church Support Initiative</button>
-      <button class="prayer-cat-btn" data-cat="Pro-Life Outreach">Pro-Life Outreach</button>
       <button class="prayer-cat-btn" data-cat="Discipleship Program">Discipleship Program</button>
       <button class="prayer-cat-btn" data-cat="Seminary">Seminary</button>
       <button class="prayer-cat-btn" data-cat="Books &amp; Publishing">Books &amp; Publishing</button>
@@ -205,6 +203,80 @@
         <p class="prayer-empty">Loading prayers...</p>
       </div>
     </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!--
+    SETUP REQUIRED — Join the Team form
+    ====================================
+    This form posts to Formspree. Replace YOUR_TEAM_FORM_ID below with the
+    endpoint from the second Formspree form (separate from the Receive
+    Support form) once it's created at formspree.io.
+  -->
+  <section id="join-team" style="background:var(--cream);">
+    <div class="section-eyebrow">Join the Team</div>
+    <h2 class="section-heading">Help us repair and build.</h2>
+    <p class="section-body" style="max-width:52ch;margin-bottom:2.5rem;">We put together crews to help churches with hands-on construction and repair work. Tell us a bit about yourself and how you'd like to contribute.</p>
+
+    <form class="form-wrap" action="https://formspree.io/f/YOUR_TEAM_FORM_ID" method="POST">
+      <input type="hidden" name="_subject" value="New Join the Team Application — Amber & Ember" />
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="jt-name">Full Name</label>
+          <input type="text" id="jt-name" name="Full Name" required />
+        </div>
+        <div class="form-group">
+          <label for="jt-phone">Phone Number</label>
+          <input type="tel" id="jt-phone" name="Phone Number" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="jt-email">Email Address</label>
+        <input type="email" id="jt-email" name="Email Address" required />
+      </div>
+      <div class="form-group">
+        <label for="jt-church">Church / Ministry Home (if any)</label>
+        <input type="text" id="jt-church" name="Church / Ministry Home" />
+      </div>
+      <div class="form-group">
+        <label for="jt-address">Mailing Address</label>
+        <input type="text" id="jt-address" name="Mailing Address" />
+      </div>
+      <div class="form-row">
+        <div class="form-group" style="flex:2;">
+          <label for="jt-city">City</label>
+          <input type="text" id="jt-city" name="City" />
+        </div>
+        <div class="form-group">
+          <label for="jt-state">State</label>
+          <input type="text" id="jt-state" name="State" />
+        </div>
+        <div class="form-group">
+          <label for="jt-zip">ZIP</label>
+          <input type="text" id="jt-zip" name="ZIP" />
+        </div>
+      </div>
+
+      <div class="section-eyebrow" style="margin-top:0.5rem;">What Can You Contribute?</div>
+      <div class="form-checkbox-group">
+        <label><input type="checkbox" name="Skills" value="General Labor" /> General Labor</label>
+        <label><input type="checkbox" name="Skills" value="Carpentry" /> Carpentry</label>
+        <label><input type="checkbox" name="Skills" value="Electrical" /> Electrical</label>
+        <label><input type="checkbox" name="Skills" value="Plumbing" /> Plumbing</label>
+        <label><input type="checkbox" name="Skills" value="Painting / Finish Work" /> Painting / Finish Work</label>
+        <label><input type="checkbox" name="Skills" value="Other" /> Other</label>
+      </div>
+
+      <div class="form-group">
+        <label for="jt-details">Tell Us More About Your Skills, Availability, or How You'd Like to Help</label>
+        <textarea id="jt-details" name="Details"></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary">Submit Application</button>
+      <p class="form-note">Confidential intake form. Someone from our team will follow up with you.</p>
+    </form>
   </section>
 
   <hr class="rule" />

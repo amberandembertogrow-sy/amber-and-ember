@@ -257,6 +257,11 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
   background-repeat: no-repeat; background-position: right 1rem center;
 }
 .form-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem; }
+.form-row { display: flex; gap: 1rem; }
+.form-row .form-group { flex: 1; }
+.form-checkbox-group { display: flex; flex-wrap: wrap; gap: 0.75rem 1.75rem; margin-bottom: 1.75rem; }
+.form-checkbox-group label { display: flex; align-items: center; gap: 0.55rem; font-size: 0.9rem; color: var(--text-body); font-weight: 300; cursor: pointer; }
+.form-checkbox-group input[type="checkbox"] { width: 1rem; height: 1rem; accent-color: var(--amber); cursor: pointer; }
 
 /* ---- APP PAGE ---- */
 .app-section-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receive Support — Amber &amp; Ember</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="image_fb81ea3.png" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Amber <span>&amp;</span> Ember</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="education.html">Education</a>
+        <div class="dropdown-menu">
+          <a href="seminary.html">Seminary</a>
+          <a href="discipleship.html">Discipleship</a>
+          <a href="study-bot.html">Study Bot</a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <a href="content.html">Content</a>
+        <div class="dropdown-menu">
+          <a href="books.html">Books</a>
+          <a href="podcast.html">Podcast</a>
+          <a href="youtube.html">YouTube</a>
+        </div>
+      </li>
+      <li><a href="app.html">App</a></li>
+      <li class="nav-dropdown">
+        <a href="support.html">Support</a>
+        <div class="dropdown-menu">
+          <a href="give.html">Give</a>
+          <a href="receive-support.html" class="active">Receive Support</a>
+          <a href="get-involved.html">Get Involved</a>
+        </div>
+      </li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-header">
+    <div class="section-eyebrow">Support</div>
+    <h1>Request Support</h1>
+    <p>We come alongside churches and ministries with practical, hands-on support. Fill out what you can below and someone from our team will follow up with you.</p>
+  </div>
+
+  <section>
+    <form class="form-wrap" action="https://formspree.io/f/mykrkgjv" method="POST">
+      <input type="hidden" name="_subject" value="New Request for Support — Amber & Ember" />
+
+      <div class="section-eyebrow">Contact Information</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="rs-name">Full Name</label>
+          <input type="text" id="rs-name" name="Full Name" required />
+        </div>
+        <div class="form-group">
+          <label for="rs-phone">Phone Number</label>
+          <input type="tel" id="rs-phone" name="Phone Number" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="rs-email">Email Address</label>
+        <input type="email" id="rs-email" name="Email Address" required />
+      </div>
+      <div class="form-group">
+        <label for="rs-church">Church / Ministry Home (if any)</label>
+        <input type="text" id="rs-church" name="Church / Ministry Home" />
+      </div>
+      <div class="form-group">
+        <label for="rs-address">Mailing Address</label>
+        <input type="text" id="rs-address" name="Mailing Address" />
+      </div>
+      <div class="form-row">
+        <div class="form-group" style="flex:2;">
+          <label for="rs-city">City</label>
+          <input type="text" id="rs-city" name="City" />
+        </div>
+        <div class="form-group">
+          <label for="rs-state">State</label>
+          <input type="text" id="rs-state" name="State" />
+        </div>
+        <div class="form-group">
+          <label for="rs-zip">ZIP</label>
+          <input type="text" id="rs-zip" name="ZIP" />
+        </div>
+      </div>
+
+      <div class="section-eyebrow" style="margin-top:0.5rem;">What Kind of Support Are You Looking For?</div>
+      <div class="form-checkbox-group">
+        <label><input type="checkbox" name="Support Type" value="Construction / Repair" /> Construction / Repair</label>
+        <label><input type="checkbox" name="Support Type" value="Facility Maintenance" /> Facility Maintenance</label>
+        <label><input type="checkbox" name="Support Type" value="Other" /> Other</label>
+      </div>
+
+      <div class="form-group">
+        <label for="rs-details">Tell Us More About Your Need</label>
+        <textarea id="rs-details" name="Details"></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary">Submit Request</button>
+      <p class="form-note">Confidential intake form. Someone from our team will follow up with you.</p>
+    </form>
+  </section>
+
+  <footer style="background:var(--charcoal);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <a href="index.html" style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(250,246,238,0.5);text-decoration:none;">Amber <span style="color:var(--amber);">&amp;</span> Ember</a>
+    <p style="font-size:0.75rem;color:rgba(250,246,238,0.25);">&copy; 2025 Amber &amp; Ember Ministry</p>
+  </footer>
+
+  <script>
+    function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+  </script>
+</body>
+</html>
