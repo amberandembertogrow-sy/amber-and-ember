@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Statement of Faith â€” Amber &amp; Ember</title>
+  <title>Study Bot — Amber &amp; Ember</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -28,7 +28,7 @@
         <div class="dropdown-menu">
           <a href="seminary.html">Seminary</a>
           <a href="discipleship.html">Discipleship</a>
-          <a href="study-bot.html">Study Bot</a>
+          <a href="study-bot.html" class="active">Study Bot</a>
         </div>
       </li>
       <li class="nav-dropdown">
@@ -54,16 +54,25 @@
   </nav>
 
   <div class="page-header">
-    <div class="section-eyebrow">Amber &amp; Ember</div>
-    <h1>Statement of Faith</h1>
-    <p>What we believe and why it shapes everything we do. This page is being written â€” content coming soon.</p>
+    <div class="section-eyebrow">Education</div>
+    <h1>Study Bot</h1>
+    <p>A guided study companion for anyone who wants to dig into Scripture — ask a question, get a careful answer, and go deeper from there.</p>
   </div>
 
   <section>
     <div style="max-width:65ch;">
-      <p class="section-body">Amber &amp; Ember is a Christian ministry. Everything we build â€” the app, the books, the seminars, the outreach â€” flows from what we believe the Bible teaches. A full statement of faith is being written and will be posted here.</p>
-      <p class="section-body" style="margin-top:1.25rem;">If you have questions about our doctrinal position in the meantime, reach out directly through the <a href="get-involved.html" style="color:var(--amber);">Get Involved</a> page.</p>
+      <div class="section-eyebrow">What This Is</div>
+      <h2 class="section-heading">A place to ask the question you actually have.</h2>
+      <p class="section-body">Not every study question fits neatly into a devotional or a sermon. Sometimes you just want to ask what a passage means, how it fits with the rest of Scripture, or why a word was translated the way it was. The Study Bot is built to help with exactly that — open to anyone, whether you're working through the seminary track, the discipleship track, or just studying on your own.</p>
     </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section style="background:var(--cream);">
+    <div class="section-eyebrow">Ask the Study Bot</div>
+    <h2 class="section-heading" style="margin-bottom:2rem;">Start a conversation below.</h2>
+    <div id="study-bot-chat" class="study-bot-container"></div>
   </section>
 
   <footer style="background:var(--charcoal);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -74,6 +83,8 @@
   <script>
     function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
   </script>
+
+  <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2024/12/14/22/20241214225701-3YJLRTQM.js" defer></script>
 </body>
 </html>
-
