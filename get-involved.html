@@ -314,6 +314,7 @@
     document.getElementById('prayerSubmit').addEventListener('click', function() {
       if (!selectedCategory) return;
       var btn = this;
+      var postedCategory = selectedCategory;
       btn.disabled = true;
       btn.textContent = 'Posting...';
       var status = document.getElementById('prayerStatus');
@@ -326,7 +327,7 @@
           'Content-Type': 'application/json',
           'Prefer': 'return=minimal'
         },
-        body: JSON.stringify({ category: selectedCategory })
+        body: JSON.stringify({ category: postedCategory })
       })
       .then(function(res) {
         if (!res.ok) throw new Error();
@@ -335,6 +336,16 @@
         document.querySelectorAll('.prayer-cat-btn').forEach(function(b) { b.classList.remove('selected'); });
         selectedCategory = null;
         loadPrayers();
+
+        // Email notification (best-effort, doesn't affect the board UI above)
+        fetch('https://formspree.io/f/mwvgverp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: 'New Prayer Board Submission — Amber & Ember',
+            category: postedCategory
+          })
+        }).catch(function() {});
       })
       .catch(function() {
         status.textContent = 'Something went wrong. Please try again.';
