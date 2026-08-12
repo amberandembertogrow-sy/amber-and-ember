@@ -9,60 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="image_fb81ea3.png" />
-  <style>
-    .hub-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .hub-card {
-      border: 1px solid var(--rule);
-      padding: 2.5rem;
-      background: var(--warm-white);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .hub-card-label {
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--amber);
-    }
-    .hub-card h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-weight: 400;
-      color: var(--charcoal);
-      line-height: 1.15;
-    }
-    .hub-card p {
-      font-size: 0.92rem;
-      line-height: 1.75;
-      color: var(--text-muted);
-      font-weight: 300;
-      flex: 1;
-    }
-    .hub-card-link {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--amber);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(201,123,46,0.35);
-      padding-bottom: 0.15rem;
-      transition: color 0.2s, border-color 0.2s;
-      margin-top: 0.5rem;
-    }
-    .hub-card-link:hover { color: var(--ember); border-color: var(--ember); }
-    @media (max-width: 680px) {
-      .hub-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
 
@@ -106,24 +52,30 @@
 
   <section style="background:var(--cream);">
     <div class="hub-grid">
-      <div class="hub-card">
+      <a href="give.html" class="hub-card">
         <div class="hub-card-label">Financial Support</div>
-        <h2>Give</h2>
-        <p>Fund the non-profit initiatives directly. Payment processing is being set up now — see what each initiative covers and give when it's live.</p>
-        <a href="give.html" class="hub-card-link">Go to Give</a>
-      </div>
-      <div class="hub-card">
+        <div class="hub-card-title">Give</div>
+        <p class="hub-card-desc">Fund the non-profit initiatives directly. Payment processing is being set up now — see what each initiative covers and give when it's live.</p>
+        <span class="hub-card-cta">Go to Give</span>
+      </a>
+      <a href="receive-support.html" class="hub-card">
         <div class="hub-card-label">For Churches</div>
-        <h2>Receive Support</h2>
-        <p>A pastor or ministry leader with a practical need? Apply for construction, repair, or facility support and our team will follow up.</p>
-        <a href="receive-support.html" class="hub-card-link">Request Support</a>
-      </div>
-      <div class="hub-card">
+        <div class="hub-card-title">Receive Support</div>
+        <p class="hub-card-desc">A pastor or ministry leader with a practical need? Apply for construction, repair, or facility support and our team will follow up.</p>
+        <span class="hub-card-cta">Request Support</span>
+      </a>
+      <a href="get-involved.html" class="hub-card">
         <div class="hub-card-label">Other Ways to Help</div>
-        <h2>Get Involved</h2>
-        <p>Pray, join a repair team, or spread the word. There's more than one way to be part of this.</p>
-        <a href="get-involved.html" class="hub-card-link">Get Involved</a>
-      </div>
+        <div class="hub-card-title">Get Involved</div>
+        <p class="hub-card-desc">Pray, join a repair team, or spread the word. There's more than one way to be part of this.</p>
+        <span class="hub-card-cta">Get Involved</span>
+      </a>
+      <a href="church-support.html" class="hub-card">
+        <div class="hub-card-label">For Churches</div>
+        <div class="hub-card-title">Church Support</div>
+        <p class="hub-card-desc">What we actually do for churches with limited resources, and how the whole initiative works.</p>
+        <span class="hub-card-cta">Learn More</span>
+      </a>
     </div>
   </section>
 

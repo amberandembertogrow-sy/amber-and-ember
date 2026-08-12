@@ -4,435 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amber &amp; Ember — Discipling Young Believers</title>
+  <meta name="description" content="Amber & Ember helps young believers understand Scripture, grow in Christ, and eventually serve — through a Bible study app, a study companion, deep teaching, and practical support for churches." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="image_fb81ea3.png" />
   <script src="https://f.convertkit.com/ckjs/ck.5.js" async></script>
-  <style>
-    /* ---- HOME PAGE ---- */
-
-    .hp-hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      background: url('image_b3df6a9c.png') center center / cover no-repeat var(--charcoal);
-      padding: 9rem 4rem 6rem;
-      overflow: hidden;
-    }
-    .hp-hero::after {
-      content: '';
-      position: absolute; left: 0; right: 0; bottom: 0; height: 40vh;
-      background: linear-gradient(to bottom, transparent 0%, var(--charcoal) 100%);
-      pointer-events: none; z-index: 1;
-    }
-    .hp-hero-inner { max-width: 680px; position: relative; z-index: 2; }
-    /* Gradient bridge strip shared by sections that transition tone */
-    .hp-bridge { position: absolute; left: 0; right: 0; top: 0; height: 220px; z-index: 0; pointer-events: none; }
-    .hp-eyebrow {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      animation: fadeUp 0.6s ease both;
-    }
-    .hp-eyebrow::before {
-      content: '';
-      display: block;
-      width: 2rem;
-      height: 1px;
-      background: var(--amber);
-      flex-shrink: 0;
-    }
-    .hp-hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.2rem, 7vw, 5.8rem);
-      font-weight: 300;
-      line-height: 1.06;
-      color: var(--cream);
-      margin-bottom: 2rem;
-      animation: fadeUp 0.6s 0.1s ease both;
-    }
-    .hp-hero h1 em { font-style: italic; color: var(--amber-light); font-weight: 300; }
-    .hp-hero-sub {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: rgba(250,246,238,0.6);
-      font-weight: 300;
-      max-width: 520px;
-      margin-bottom: 3rem;
-      animation: fadeUp 0.6s 0.2s ease both;
-    }
-    .hp-hero-cta { animation: fadeUp 0.6s 0.3s ease both; }
-    .hp-hero-cite {
-      display: block; margin-top: 0.75rem; font-size: 0.7rem; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber-light);
-    }
-
-    /* Mission */
-    .hp-mission {
-      position: relative;
-      padding: 15rem 4rem 7rem;
-      background: var(--parchment);
-      overflow: hidden;
-    }
-    .hp-mission > .hp-bridge {
-      background: linear-gradient(to bottom, var(--charcoal) 0%, var(--smoky-brown) 30%, var(--toasted) 62%, var(--parchment) 100%);
-    }
-    .hp-mission-layout { position: relative; z-index: 1; }
-    .hp-mission-inner { max-width: 65ch; }
-    .hp-mission p {
-      font-size: 1.06rem;
-      line-height: 1.85;
-      color: var(--text-body);
-      font-weight: 300;
-      margin-bottom: 1.1rem;
-    }
-    .hp-mission p:last-of-type { margin-bottom: 0; }
-    .hp-mission-pillars { display: flex; flex-direction: column; gap: 1.75rem; margin-bottom: 2.5rem; }
-    .hp-mission-pillar { display: flex; gap: 1.25rem; align-items: flex-start; }
-    .hp-mission-pillar-num {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300;
-      color: var(--amber); line-height: 1; flex-shrink: 0; width: 2rem;
-    }
-    .hp-mission-pillar-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.4rem; }
-    .hp-mission-pillar-text p { font-size: 0.92rem; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
-    .hp-scripture {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--rule);
-      font-size: 0.85rem;
-      font-style: italic;
-      color: var(--text-muted);
-      line-height: 1.65;
-      font-family: 'Cormorant Garamond', serif;
-    }
-    .hp-scripture cite {
-      display: block;
-      font-style: normal;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-top: 0.5rem;
-    }
-
-    /* The Work */
-    .hp-work {
-      padding: 7rem 4rem;
-      background: var(--parchment);
-    }
-    .hp-work-label {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 4rem;
-    }
-    .hp-work-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--rule);
-    }
-    .hp-pillar {
-      padding: 2.5rem 2.5rem 2.5rem 0;
-      border-right: 1px solid var(--rule);
-    }
-    .hp-pillar:last-child { border-right: none; }
-    .hp-pillar + .hp-pillar { padding-left: 2.5rem; }
-    .hp-pillar-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: var(--charcoal);
-      margin-bottom: 0.85rem;
-      line-height: 1.2;
-    }
-    .hp-pillar-desc {
-      font-size: 0.88rem;
-      line-height: 1.75;
-      color: var(--text-muted);
-      font-weight: 300;
-      margin-bottom: 1.5rem;
-    }
-    .hp-pillar-link {
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--amber);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(201,123,46,0.35);
-      padding-bottom: 0.15rem;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .hp-pillar-link:hover { color: var(--ember); border-color: var(--ember); }
-
-    /* Join Us */
-    .hp-join {
-      position: relative;
-      padding: 15rem 4rem 7rem;
-      background: var(--charcoal);
-      overflow: hidden;
-    }
-    .hp-join > .hp-bridge {
-      background: linear-gradient(to bottom, var(--parchment) 0%, var(--toasted) 40%, var(--charcoal) 100%);
-    }
-    .hp-join-inner { position: relative; z-index: 1; max-width: 600px; }
-    .hp-join-lead {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: rgba(250,246,238,0.6);
-      font-weight: 300;
-      margin-bottom: 3.5rem;
-      max-width: 48ch;
-    }
-    .hp-join-links {
-      display: flex;
-      gap: 4rem;
-      align-items: flex-start;
-    }
-    .hp-join-link {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .hp-join-link a {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.9rem;
-      font-weight: 300;
-      color: var(--cream);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(250,246,238,0.15);
-      padding-bottom: 0.2rem;
-      line-height: 1.2;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .hp-join-link a:hover { color: var(--amber-light); border-color: var(--amber); }
-    .hp-join-link span {
-      font-size: 0.72rem;
-      color: rgba(250,246,238,0.3);
-      letter-spacing: 0.08em;
-    }
-
-    /* Email capture */
-    .hp-email {
-      position: relative;
-      padding: 15rem 4rem 6rem;
-      background: var(--warm-white);
-      text-align: center;
-      overflow: hidden;
-    }
-    .hp-email > .hp-bridge {
-      background: linear-gradient(to bottom, var(--charcoal) 0%, var(--toasted) 45%, var(--warm-white) 100%);
-    }
-    #hp-email-form-wrap { position: relative; z-index: 1; }
-    .hp-email-heading {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 300;
-      color: var(--charcoal);
-      margin-bottom: 0.75rem;
-      line-height: 1.15;
-    }
-    .hp-email-copy {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      font-weight: 300;
-      max-width: 42ch;
-      margin: 0 auto 2.5rem;
-      line-height: 1.7;
-    }
-    .hp-email-form {
-      display: inline-flex;
-      max-width: 460px;
-      width: 100%;
-    }
-    .hp-email-form input {
-      flex: 1;
-      padding: 0.8rem 1rem;
-      background: var(--warm-white);
-      border: 1px solid rgba(201,123,46,0.35);
-      border-right: none;
-      color: var(--text-body);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.88rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .hp-email-form input::placeholder { color: rgba(61,53,48,0.4); }
-    .hp-email-form input:focus { border-color: var(--amber); }
-    .hp-email-form button {
-      padding: 0.8rem 1.5rem;
-      background: var(--amber);
-      border: 1px solid var(--amber);
-      color: var(--cream);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .hp-email-form button:hover { background: var(--ember); border-color: var(--ember); }
-    .hp-email-form button:disabled { opacity: 0.6; cursor: default; }
-    .hp-email-msg {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      min-height: 1.4em;
-    }
-    .hp-email-msg.success { color: var(--amber); }
-    .hp-email-msg.error { color: var(--ember); }
-
-    /* Footer */
-    .hp-footer {
-      position: relative;
-      background: var(--charcoal);
-      padding: 5rem 4rem 3rem;
-      overflow: hidden;
-    }
-    .hp-footer > .hp-bridge {
-      background: linear-gradient(to bottom, var(--warm-white) 0%, var(--smoky-brown) 55%, var(--charcoal) 100%);
-      height: 70px;
-    }
-    .hp-footer-top { position: relative; z-index: 1; }
-    .hp-footer-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 3rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid rgba(250,246,238,0.06);
-    }
-    .hp-footer-brand {}
-    .hp-footer-wordmark {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: rgba(250,246,238,0.6);
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    .hp-footer-wordmark span { color: var(--amber); }
-    .hp-footer-tagline {
-      font-size: 0.78rem;
-      color: rgba(250,246,238,0.3);
-      font-weight: 300;
-    }
-    .hp-footer-nav {
-      display: flex;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-      align-items: flex-start;
-    }
-    .hp-footer-nav a {
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(250,246,238,0.35);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .hp-footer-nav a:hover { color: var(--amber); }
-    .hp-footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .hp-footer-copy {
-      font-size: 0.72rem;
-      color: rgba(250,246,238,0.2);
-      letter-spacing: 0.04em;
-    }
-
-    /* Home page nav: dark, flows with page (not fixed), blends into hero */
-    nav {
-      position: relative;
-      background: var(--charcoal);
-      border-bottom: 1px solid rgba(250,246,238,0.06);
-      backdrop-filter: none;
-    }
-    nav .nav-logo { color: var(--cream); }
-    nav .nav-logo span { color: var(--amber); }
-    nav .nav-links a { color: rgba(250,246,238,0.65); }
-    nav .nav-links a:hover, nav .nav-links a.active { color: var(--amber); }
-    nav .dropdown-menu { background: var(--charcoal); border-color: rgba(250,246,238,0.1); }
-    nav .dropdown-menu a { color: rgba(250,246,238,0.65); }
-    nav .dropdown-menu a:hover { color: var(--amber); }
-    nav .nav-toggle span { background: var(--cream); }
-    nav .nav-cta { border-color: rgba(250,246,238,0.35); color: var(--cream); }
-    .hp-hero { padding-top: 5rem; }
-
-    /* Mission with photo */
-    .hp-mission-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .hp-mission-img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-
-    /* Work pillar images */
-    .hp-pillar-img {
-      width: 100%;
-      height: 175px;
-      object-fit: cover;
-      display: block;
-      margin-bottom: 1.75rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hp-hero { padding: 7rem 1.5rem 5rem; }
-      .hp-mission { padding: 15rem 1.5rem 5rem; }
-      .hp-work { padding: 5rem 1.5rem; }
-      .hp-join { padding: 15rem 1.5rem 5rem; }
-      .hp-email { padding: 15rem 1.5rem 2.5rem; flex-direction: column; align-items: flex-start; }
-      .hp-email-form input { width: 100%; flex: 1; }
-      .hp-email-form { width: 100%; }
-      .hp-work-grid { grid-template-columns: 1fr 1fr; }
-      .hp-pillar:nth-child(2) { border-right: none; }
-      .hp-pillar:nth-child(3) { border-top: 1px solid var(--rule); padding-top: 2.5rem; }
-      .hp-join-links { gap: 2.5rem; }
-      .hp-footer { padding: 4.5rem 1.5rem 2.5rem; }
-      .hp-footer-nav { gap: 1.5rem; }
-    }
-    @media (max-width: 560px) {
-      .hp-work-grid { grid-template-columns: 1fr; }
-      .hp-pillar { border-right: none; border-bottom: 1px solid var(--rule); padding: 2rem 0; }
-      .hp-pillar + .hp-pillar { padding-left: 0; border-top: none; }
-      .hp-pillar:last-child { border-bottom: none; }
-      .hp-join-links { flex-direction: column; gap: 2rem; }
-    }
-  </style>
 </head>
 <body>
 
-  <nav>
+  <nav class="hp-nav">
     <a href="index.html" class="nav-logo">Amber <span>&amp;</span> Ember</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
@@ -514,6 +96,33 @@
     </div>
   </section>
 
+  <!-- 2.5 WE CAN SUCCEED TOGETHER -->
+  <section style="background:var(--parchment);">
+    <div class="section-eyebrow">We Can Succeed Together</div>
+    <h2 class="section-heading" style="max-width:30ch;">Nobody grows in isolation. That's the point.</h2>
+    <p class="section-body" style="max-width:56ch;">Whatever stage you're at, the way forward is the same: study together, ask honest questions together, and walk it out together.</p>
+    <div class="together-grid">
+      <div class="together-card">
+        <div class="together-card-icon">📖</div>
+        <h3>Study Together</h3>
+        <p>Seminary, Discipleship, and the Draw the Line books — built for peers pushing each other toward real understanding.</p>
+        <a href="grow.html">Explore Grow &rarr;</a>
+      </div>
+      <div class="together-card">
+        <div class="together-card-icon">💬</div>
+        <h3>Ask Honestly</h3>
+        <p>Bring the question you're actually sitting with. Our Study Companion is built to help, not to replace your church.</p>
+        <a href="study-bot.html">Ask a Question &rarr;</a>
+      </div>
+      <div class="together-card">
+        <div class="together-card-icon">🤝</div>
+        <h3>Walk It Out</h3>
+        <p>Prayer, community, and eventually serving churches directly. Faith that stays private doesn't stay long.</p>
+        <a href="get-involved.html">Get Involved &rarr;</a>
+      </div>
+    </div>
+  </section>
+
   <!-- 3. THE WORK -->
   <section class="hp-work" id="the-work">
     <div class="hp-work-label">The Work</div>
@@ -535,6 +144,23 @@
         <div class="hp-pillar-name">Seminary</div>
         <p class="hp-pillar-desc">Deep-dive Bible studies for those who want to understand, not merely read.</p>
         <a href="grow.html" class="hp-pillar-link">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3.5 PODCAST ANCHOR -->
+  <section style="background:var(--parchment);">
+    <div class="section-eyebrow">Listen</div>
+    <h2 class="section-heading" style="margin-bottom:2.5rem;">The podcast, wherever you already listen.</h2>
+    <div class="podcast-anchor">
+      <div class="podcast-anchor-art">🎙️</div>
+      <div class="podcast-anchor-body">
+        <span class="badge-coming">Coming Soon</span>
+        <div class="podcast-anchor-title">Honest conversations, biblical standards</div>
+        <p class="podcast-anchor-desc">A group of men talking through modern issues without pretending they're simple — grounded in Scripture, not opinion. Launching soon on Spotify and Apple Podcasts.</p>
+        <div class="podcast-anchor-links">
+          <a href="podcast.html" class="podcast-link">Get Notified &rarr;</a>
+        </div>
       </div>
     </div>
   </section>

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Study Bot — Amber &amp; Ember</title>
+  <title>Ask — Amber &amp; Ember</title>
+  <meta name="description" content="Ask a real question about Scripture and get a careful, guided answer from our Study Companion." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -44,26 +45,13 @@
     </button>
   </nav>
 
-  <div class="page-header">
-    <div class="section-eyebrow">Education</div>
-    <h1>Study Bot</h1>
-    <p>A guided study companion for anyone who wants to dig into Scripture — ask a question, get a careful answer, and go deeper from there.</p>
-  </div>
-
-  <section>
-    <div style="max-width:65ch;">
-      <div class="section-eyebrow">What This Is</div>
-      <h2 class="section-heading">A place to ask the question you actually have.</h2>
-      <p class="section-body">Not every study question fits neatly into a devotional or a sermon. Sometimes you just want to ask what a passage means, how it fits with the rest of Scripture, or why a word was translated the way it was. The Study Bot is built to help with exactly that — open to anyone, whether you're working through the seminary track, the discipleship track, or just studying on your own.</p>
+  <section style="padding-top:9rem;">
+    <div class="ask-canvas">
+      <div class="section-eyebrow">Ask</div>
+      <h1 class="section-heading">Ask the question you actually have.</h1>
+      <p class="ask-instruction">Not a replacement for your Bible, your pastor, or the Spirit's own teaching — a place to ask what a passage means, how it fits with the rest of Scripture, or why a word was translated the way it was. Open to anyone, whatever track you're on.</p>
+      <div id="study-bot-chat" class="study-bot-container"></div>
     </div>
-  </section>
-
-  <hr class="rule" />
-
-  <section style="background:var(--cream);">
-    <div class="section-eyebrow">Ask the Study Bot</div>
-    <h2 class="section-heading" style="margin-bottom:2rem;">Start a conversation below.</h2>
-    <div id="study-bot-chat" class="study-bot-container"></div>
   </section>
 
   <footer style="background:var(--charcoal);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
