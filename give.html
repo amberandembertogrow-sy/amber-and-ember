@@ -47,67 +47,19 @@
   <div class="page-header">
     <div class="section-eyebrow">Give</div>
     <h1>Fund the Work</h1>
-    <p>Payment processing is being set up now. Use the form below to reach out if you want to give today.</p>
+    <p>Payment processing is being set up now. Check back soon to give directly. If you're a church or ministry looking to <em>receive</em> support instead, <a href="receive-support.html" style="color:var(--amber);">apply here &rarr;</a>.</p>
   </div>
 
   <section>
-    <div class="support-grid">
+    <div class="support-grid" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin:0 auto;">
       <div class="support-card">
         <h3>Church Support</h3>
-        <span class="badge-coming">Payment Coming Soon</span>
-      </div>
-      <div class="support-card">
-        <h3>Pro-Life Outreach</h3>
         <span class="badge-coming">Payment Coming Soon</span>
       </div>
       <div class="support-card">
         <h3>Discipleship</h3>
         <span class="badge-coming">Payment Coming Soon</span>
       </div>
-    </div>
-  </section>
-
-  <hr class="rule" />
-
-  <!-- REQUEST SUPPORT -->
-  <section id="request-support">
-    <div class="form-wrap">
-      <div class="section-eyebrow">Request Support</div>
-      <h2 class="section-heading">We want to hear from you</h2>
-      <p class="section-body" style="margin-bottom:2.5rem;">If you're a pastor, a ministry, or a family who could use what we offer, reach out. We're still building out the formal criteria, but if you have a real need, tell us about it. We'll be honest about what we can and can't do.</p>
-
-      <!--
-        TO ACTIVATE THIS FORM:
-        1. Go to formspree.io and create a free account
-        2. Create a new form and copy your form ID
-        3. Replace PLACEHOLDER below with your form ID (e.g. xrgvkpqz)
-      -->
-      <form action="https://formspree.io/f/PLACEHOLDER" method="POST">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required placeholder="Your name" />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="your@email.com" />
-        </div>
-        <div class="form-group">
-          <label for="type">What kind of support are you looking for?</label>
-          <select id="type" name="support_type">
-            <option value="">Select one</option>
-            <option value="church">Church or ministry support</option>
-            <option value="pro-life">Pro-life / pregnancy assistance</option>
-            <option value="discipleship">Discipleship resources</option>
-            <option value="other">Something else</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Tell us about your need</label>
-          <textarea id="message" name="message" required placeholder="What's the situation? What would help?"></textarea>
-        </div>
-        <button type="submit" class="btn-primary">Send Request</button>
-        <p class="form-note">We read every message. You'll hear back from Jacob directly.</p>
-      </form>
     </div>
   </section>
 
