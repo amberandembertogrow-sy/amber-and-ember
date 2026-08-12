@@ -11,10 +11,32 @@
   --text-body: #3D3530;
   --text-muted: #8A7E76;
   --rule: rgba(201,123,46,0.25);
+
+  /* ---- Gradient-world tokens (dark <-> light continuity) ---- */
+  --near-black: #0C0D0D;
+  --smoky-brown: #2A1F17;
+  --deep-brown: #3B2A1F;
+  --toasted: #8A4F26;
+  --parchment: #F0E6D2;
+  --gold-muted: #B08D57;
+  --text-muted-on-dark: rgba(253,249,243,0.62);
+  --rule-on-dark: rgba(232,168,74,0.2);
 }
 
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--text-body); overflow-x: hidden; }
+
+/* ---- ACCESSIBILITY / MOTION (global) ---- */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--amber); outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important; scroll-behavior: auto !important;
+  }
+}
 
 /* ---- NAV ---- */
 nav {
@@ -27,8 +49,21 @@ nav {
 .nav-logo {
   font-family: 'Cormorant Garamond', serif; font-size: 1.35rem;
   font-weight: 600; letter-spacing: 0.04em; color: var(--charcoal); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 0.6rem;
 }
 .nav-logo span { color: var(--amber); }
+.brand-badge {
+  width: 30px; height: 30px; object-fit: cover; object-position: 50% 32%;
+  border-radius: 5px; display: block;
+  animation: badgeGlow 4.5s ease-in-out infinite;
+}
+@keyframes badgeGlow {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(201,123,46,0.25)); }
+  50% { filter: drop-shadow(0 0 7px rgba(232,168,74,0.55)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-badge { animation: none; filter: drop-shadow(0 0 3px rgba(201,123,46,0.3)); }
+}
 .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
 .nav-links a {
   text-decoration: none; font-size: 0.8rem; font-weight: 400;
