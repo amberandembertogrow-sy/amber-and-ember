@@ -86,12 +86,12 @@
       'jacob-martin': {
         name: 'Jacob Martin',
         role: 'Founder, Amber & Ember',
-        bio: 'Jacob is the founder of Amber & Ember. More to come here soon.'
+        bio: 'Jacob was saved at the age of five. Since then, he has grown through being sharpened by other Christians he worked alongside, and that shaped his conviction to influence others through daily living and serving Christ.'
       },
       'maria-martin': {
         name: 'Maria Martin',
         role: 'Co-Founder, Amber & Ember',
-        bio: 'Maria is a co-founder of Amber & Ember, leading alongside Jacob. More to come here soon.'
+        bio: 'Maria married Jacob in August of 2020 and has supported him in his role as founder and leader ever since. She was saved at a young age and grew up in a Bible-believing church. The two met while attending Bible college.'
       }
     };
 
@@ -107,9 +107,10 @@
         churchUrl: 'https://www.ibcbelizecity.com/',
         duration: 'Two weeks',
         goal: "Outreach, and helping the church grow its reach in the community.",
-        note: "Beside outreach, the team will lead short encouraging lessons through the week and work directly with the pastor on whatever else the church needs.",
+        note: "Besides outreach, the team will be mentored and encouraged throughout the week, with the pastor arranging other ways for them to get involved with the church.",
         funding: "The organization covers half of transportation and lodging costs, plus all food, for those who go.",
         invite: "This first trip is invite-only, open to friends and family while we get our footing.",
+        together: "Together, Jacob and Maria will lead this trip, hoping not only to reach others for Christ, but also to encourage believers already walking with Him.",
         leaders: ['jacob-martin', 'maria-martin']
       }
     ];
@@ -158,6 +159,9 @@
           '<p>' + l.bio + '</p>' +
         '</div>';
       });
+      if (t.together) {
+        html += '<p style="margin-top:1.5rem;font-style:italic;">' + t.together + '</p>';
+      }
       document.getElementById('leaderModalContent').innerHTML = html;
       document.getElementById('leaderModalOverlay').classList.add('open');
     }
