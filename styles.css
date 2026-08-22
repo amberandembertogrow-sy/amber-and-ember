@@ -419,6 +419,7 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
 
 /* ---- HUB GRID (Grow, and any other index-of-pages layout) ---- */
 .hub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.hub-grid-2col { grid-template-columns: repeat(2, 1fr); max-width: 840px; margin: 0 auto; }
 .hub-card {
   display: block; padding: 2.5rem; border: 1px solid var(--rule); border-radius: var(--radius-lg); background: var(--warm-white);
   text-decoration: none; color: inherit; transition: all 0.3s ease;
