@@ -672,3 +672,69 @@ footer p { font-size: 0.75rem; color: rgba(250,246,238,0.25); letter-spacing: 0.
 @media (max-width: 560px) {
   .hp-join-links { flex-direction: column; gap: 2rem; }
 }
+
+/* ---- TRIPS (upcoming-trips.html) ---- */
+.trips-hero {
+  position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center;
+  background-size: cover; background-position: center; background-color: var(--charcoal);
+  padding: 9rem 4rem 5rem; overflow: hidden; text-align: center;
+}
+.trips-hero::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(28,25,23,0.55) 0%, rgba(28,25,23,0.75) 100%);
+  pointer-events: none;
+}
+.trips-hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+.trips-hero .section-eyebrow { color: var(--amber-light); justify-content: center; display: flex; }
+.trips-hero h1 {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 300; line-height: 1.1; color: var(--cream); margin-bottom: 1.25rem;
+}
+.trips-hero p { font-size: 1.05rem; line-height: 1.75; color: rgba(250,246,238,0.7); font-weight: 300; max-width: 520px; margin: 0 auto; }
+
+.trips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+.trip-tile {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center;
+  padding: 2rem 1.5rem; border: 1px solid var(--rule); border-radius: var(--radius-lg);
+  background: var(--warm-white); cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.3s ease;
+}
+.trip-tile:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--amber); }
+.trip-tile-status {
+  font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.75rem;
+  border-radius: 999px; background: rgba(201,123,46,0.08); color: var(--amber); border: 1px solid rgba(201,123,46,0.25);
+}
+.trip-tile-date { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.5rem; }
+.trip-tile-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--charcoal); }
+
+.trip-modal-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(28,25,23,0.7); z-index: 1000;
+  align-items: center; justify-content: center; padding: 2rem;
+}
+.trip-modal-overlay.open { display: flex; }
+.trip-modal {
+  position: relative; max-width: 560px; width: 100%; max-height: 85vh; overflow-y: auto;
+  background: var(--warm-white); border-radius: var(--radius-lg); padding: 3rem 2.5rem; text-align: center;
+  box-shadow: var(--shadow-md);
+}
+.trip-modal-close {
+  position: absolute; top: 1.25rem; right: 1.25rem; width: 2rem; height: 2rem; border-radius: 50%;
+  border: 1px solid var(--rule); background: transparent; color: var(--text-muted); font-size: 1.1rem;
+  cursor: pointer; transition: all 0.3s ease; line-height: 1;
+}
+.trip-modal-close:hover { border-color: var(--amber); color: var(--amber); }
+.trip-modal h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--charcoal); margin-bottom: 1rem; }
+.trip-modal p { font-size: 0.92rem; line-height: 1.75; color: var(--text-muted); font-weight: 300; margin-bottom: 1rem; }
+.trip-modal p:last-of-type { margin-bottom: 0; }
+.trip-modal-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.4rem; }
+.trip-leaders { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 1.25rem 0; }
+.trip-leader-btn {
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; color: var(--amber);
+  background: transparent; border: none; border-bottom: 1px solid rgba(201,123,46,0.35); cursor: pointer;
+  padding: 0 0 0.15rem; transition: color 0.3s ease, border-color 0.3s ease;
+}
+.trip-leader-btn:hover { color: var(--ember); border-color: var(--ember); }
+
+@media (max-width: 900px) {
+  .trips-grid { grid-template-columns: 1fr; }
+  .trip-modal { padding: 2.5rem 1.5rem; }
+}
