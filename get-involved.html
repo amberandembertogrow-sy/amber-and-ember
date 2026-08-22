@@ -110,6 +110,11 @@
       <button class="prayer-cat-btn" data-cat="The Organization">The Organization</button>
     </div>
 
+    <div class="form-group" style="max-width:200px;margin:0 auto 1.25rem;">
+      <label for="prayerInitials">Initials (optional)</label>
+      <input type="text" id="prayerInitials" maxlength="4" placeholder="e.g. J.M." />
+    </div>
+
     <button class="btn-primary prayer-submit" id="prayerSubmit" disabled>I'm Praying for This</button>
     <p class="prayer-board-status" id="prayerStatus"></p>
 
@@ -164,6 +169,8 @@
       if (!selectedCategory) return;
       var btn = this;
       var postedCategory = selectedCategory;
+      var initialsInput = document.getElementById('prayerInitials');
+      var postedInitials = initialsInput.value.trim().slice(0, 4) || null;
       btn.disabled = true;
       btn.textContent = 'Posting...';
       var status = document.getElementById('prayerStatus');
@@ -176,7 +183,7 @@
           'Content-Type': 'application/json',
           'Prefer': 'return=minimal'
         },
-        body: JSON.stringify({ category: postedCategory })
+        body: JSON.stringify({ category: postedCategory, initials: postedInitials })
       })
       .then(function(res) {
         if (!res.ok) throw new Error();
@@ -184,6 +191,7 @@
         btn.textContent = "I'm Praying for This";
         document.querySelectorAll('.prayer-cat-btn').forEach(function(b) { b.classList.remove('selected'); });
         selectedCategory = null;
+        initialsInput.value = '';
         loadPrayers();
 
         // Email notification (best-effort, doesn't affect the board UI above)
@@ -192,7 +200,8 @@
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
             _subject: 'New Prayer Board Submission — Amber & Ember',
-            category: postedCategory
+            category: postedCategory,
+            initials: postedInitials || 'Anonymous'
           })
         }).catch(function() {});
       })
@@ -212,8 +221,14 @@
       return Math.floor(diff / 86400) + 'd ago';
     }
 
+    function escapeHtml(str) {
+      var div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
     function loadPrayers() {
-      fetch(SUPABASE_URL + '/rest/v1/prayers?select=category,created_at&order=created_at.desc&limit=50', {
+      fetch(SUPABASE_URL + '/rest/v1/prayers?select=category,created_at,initials&order=created_at.desc&limit=50', {
         headers: {
           'apikey': SUPABASE_ANON_KEY,
           'Authorization': 'Bearer ' + SUPABASE_ANON_KEY
@@ -227,8 +242,9 @@
           return;
         }
         list.innerHTML = data.map(function(p) {
+          var who = p.initials ? escapeHtml(p.initials) : 'Anonymous';
           return '<div class="prayer-entry">' +
-            '<span class="prayer-entry-text">Anonymous is praying for <strong>' + p.category + '</strong></span>' +
+            '<span class="prayer-entry-text">' + who + ' is praying for <strong>' + escapeHtml(p.category) + '</strong></span>' +
             '<span class="prayer-entry-time">' + timeAgo(p.created_at) + '</span>' +
             '</div>';
         }).join('');

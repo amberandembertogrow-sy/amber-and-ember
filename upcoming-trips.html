@@ -149,7 +149,8 @@
     function openLeadersModal(tripId) {
       var t = TRIPS.filter(function(x) { return x.id === tripId; })[0];
       if (!t) return;
-      var html = '<div class="trip-modal-label">Led By</div><h2>Meet the Leaders</h2>';
+      var html = '<div class="trip-modal-label">Led By</div><h2>Meet the Leaders</h2>' +
+        '<img src="jacob-and-maria-martin.jpg" alt="Jacob and Maria Martin" style="width:100%;max-width:320px;border-radius:var(--radius-lg);margin:0 auto 1rem;display:block;" />';
       t.leaders.forEach(function(lid) {
         var l = LEADERS[lid];
         if (!l) return;
