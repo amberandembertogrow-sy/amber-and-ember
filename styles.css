@@ -694,17 +694,24 @@ footer p { font-size: 0.75rem; color: rgba(250,246,238,0.25); letter-spacing: 0.
 
 .trips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
 .trip-tile {
-  display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center;
-  padding: 2rem 1.5rem; border: 1px solid var(--rule); border-radius: var(--radius-lg);
-  background: var(--warm-white); cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.3s ease;
+  position: relative; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start;
+  min-height: 280px; padding: 1.75rem; border: none; border-radius: var(--radius-lg); overflow: hidden;
+  background-size: cover; background-position: center; cursor: pointer; font-family: 'DM Sans', sans-serif;
+  transition: all 0.3s ease; text-align: left;
 }
-.trip-tile:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--amber); }
+.trip-tile::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(12,13,13,0.85) 0%, rgba(12,13,13,0.15) 55%, rgba(12,13,13,0.05) 100%);
+  pointer-events: none;
+}
+.trip-tile:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
 .trip-tile-status {
-  font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.75rem;
-  border-radius: 999px; background: rgba(201,123,46,0.08); color: var(--amber); border: 1px solid rgba(201,123,46,0.25);
+  position: relative; z-index: 1; align-self: flex-start;
+  font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.85rem;
+  border-radius: 999px; background: rgba(253,249,243,0.9); color: var(--ember); margin-bottom: auto;
 }
-.trip-tile-date { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.5rem; }
-.trip-tile-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--charcoal); }
+.trip-tile-date { position: relative; z-index: 1; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(250,246,238,0.75); margin-bottom: 0.35rem; }
+.trip-tile-title { position: relative; z-index: 1; font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 400; color: var(--cream); line-height: 1.05; }
 
 .trip-modal-overlay {
   display: none; position: fixed; inset: 0; background: rgba(28,25,23,0.7); z-index: 1000;
@@ -726,14 +733,6 @@ footer p { font-size: 0.75rem; color: rgba(250,246,238,0.25); letter-spacing: 0.
 .trip-modal p { font-size: 0.92rem; line-height: 1.75; color: var(--text-muted); font-weight: 300; margin-bottom: 1rem; }
 .trip-modal p:last-of-type { margin-bottom: 0; }
 .trip-modal-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.4rem; }
-.trip-leaders { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 1.25rem 0; }
-.trip-leader-btn {
-  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; color: var(--amber);
-  background: transparent; border: none; border-bottom: 1px solid rgba(201,123,46,0.35); cursor: pointer;
-  padding: 0 0 0.15rem; transition: color 0.3s ease, border-color 0.3s ease;
-}
-.trip-leader-btn:hover { color: var(--ember); border-color: var(--ember); }
-
 @media (max-width: 900px) {
   .trips-grid { grid-template-columns: 1fr; }
   .trip-modal { padding: 2.5rem 1.5rem; }

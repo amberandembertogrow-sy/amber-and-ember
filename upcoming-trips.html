@@ -100,7 +100,9 @@
         id: 'belize-2027',
         status: 'Upcoming',
         date: 'February 2027',
+        location: 'Belize',
         title: 'Belize Church Support',
+        image: 'https://static.wixstatic.com/media/bee723_d536840d578c4bc1a56f573cec5d0726~mv2_d_1707_1280_s_2.jpg',
         church: 'Independent Baptist Church of Belize City',
         churchUrl: 'https://www.ibcbelizecity.com/',
         duration: 'Two weeks',
@@ -115,10 +117,10 @@
     function renderTiles() {
       var grid = document.getElementById('tripsGrid');
       grid.innerHTML = TRIPS.map(function(t) {
-        return '<button class="trip-tile" onclick="openTripModal(\'' + t.id + '\')">' +
+        return '<button class="trip-tile" style="background-image:url(\'' + t.image + '\');" onclick="openTripModal(\'' + t.id + '\')">' +
           '<span class="trip-tile-status">' + t.status + '</span>' +
           '<span class="trip-tile-date">' + t.date + '</span>' +
-          '<span class="trip-tile-title">' + t.title + '</span>' +
+          '<span class="trip-tile-title">' + t.location + '</span>' +
         '</button>';
       }).join('');
     }
@@ -126,21 +128,16 @@
     function openTripModal(id) {
       var t = TRIPS.filter(function(x) { return x.id === id; })[0];
       if (!t) return;
-      var leaderLinks = t.leaders.map(function(lid) {
-        var l = LEADERS[lid];
-        return '<button class="trip-leader-btn" onclick="openLeaderModal(\'' + lid + '\')">' + l.name + '</button>';
-      }).join('');
       document.getElementById('tripModalContent').innerHTML =
         '<div class="trip-modal-label">' + t.status + ' &middot; ' + t.date + '</div>' +
         '<h2>' + t.title + '</h2>' +
         '<p>' + t.duration + ' in Belize, supporting <a href="' + t.churchUrl + '" target="_blank" rel="noopener" style="color:var(--amber);">' + t.church + '</a>.</p>' +
         '<div class="trip-modal-label" style="margin-top:1.5rem;">Goal</div>' +
         '<p>' + t.goal + '</p>' +
-        '<div class="trip-modal-label">Led By</div>' +
-        '<div class="trip-leaders">' + leaderLinks + '</div>' +
         '<p>' + t.note + '</p>' +
         '<p>' + t.funding + '</p>' +
-        '<p style="font-style:italic;">' + t.invite + '</p>';
+        '<p style="font-style:italic;">' + t.invite + '</p>' +
+        '<button class="btn-ghost" style="margin-top:1rem;" onclick="openLeadersModal(\'' + t.id + '\')">Meet the Leaders</button>';
       document.getElementById('tripModalOverlay').classList.add('open');
     }
 
@@ -148,13 +145,20 @@
       document.getElementById('tripModalOverlay').classList.remove('open');
     }
 
-    function openLeaderModal(id) {
-      var l = LEADERS[id];
-      if (!l) return;
-      document.getElementById('leaderModalContent').innerHTML =
-        '<div class="trip-modal-label">' + l.role + '</div>' +
-        '<h2>' + l.name + '</h2>' +
-        '<p>' + l.bio + '</p>';
+    function openLeadersModal(tripId) {
+      var t = TRIPS.filter(function(x) { return x.id === tripId; })[0];
+      if (!t) return;
+      var html = '<div class="trip-modal-label">Led By</div><h2>Meet the Leaders</h2>';
+      t.leaders.forEach(function(lid) {
+        var l = LEADERS[lid];
+        if (!l) return;
+        html += '<div style="margin-top:1.5rem;">' +
+          '<div class="trip-modal-label" style="margin-top:0;">' + l.role + '</div>' +
+          '<h2 style="font-size:1.4rem;margin-bottom:0.5rem;">' + l.name + '</h2>' +
+          '<p>' + l.bio + '</p>' +
+        '</div>';
+      });
+      document.getElementById('leaderModalContent').innerHTML = html;
       document.getElementById('leaderModalOverlay').classList.add('open');
     }
 
