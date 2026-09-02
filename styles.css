@@ -11,6 +11,7 @@
   --text-body: #3D3530;
   --text-muted: #8A7E76;
   --ink: var(--charcoal);
+  --paper: #FAF6EE;
   --rule: rgba(201,123,46,0.25);
 
   /* ---- Gradient-world tokens (dark <-> light continuity) ---- */
@@ -131,7 +132,7 @@ nav {
 
 .nav-cta {
   font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.7rem 1.6rem; background: var(--ember); color: var(--cream); border-radius: var(--radius-md);
+  padding: 0.7rem 1.6rem; background: var(--ember); color: var(--paper); border-radius: var(--radius-md);
   text-decoration: none; transition: all 0.3s ease; white-space: nowrap;
 }
 .nav-cta:hover { background: var(--ember-deep); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
@@ -142,7 +143,7 @@ nav {
 /* ---- BUTTONS ---- */
 .btn-primary {
   display: inline-block; padding: 0.9rem 2rem; background: var(--ember); border-radius: var(--radius-md);
-  color: var(--cream); text-decoration: none; font-size: 0.8rem;
+  color: var(--paper); text-decoration: none; font-size: 0.8rem;
   font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.3s ease;
 }
 .btn-primary:hover { background: var(--ember-deep); transform: translateY(-1px); box-shadow: var(--shadow-md); }
@@ -151,7 +152,7 @@ nav {
   color: var(--amber); text-decoration: none; font-size: 0.8rem;
   font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.3s ease;
 }
-.btn-ghost:hover { background: var(--amber); color: var(--cream); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+.btn-ghost:hover { background: var(--amber); color: var(--paper); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
 
 /* ---- PAGE HEADER ---- */
 .page-header { padding: 10rem 4rem 5rem; background: var(--warm-white); border-bottom: 1px solid var(--rule); text-align: center; }
@@ -225,10 +226,10 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
 
 /* ---- MISSION (shared component, unused by homepage which has its own hp-mission) ---- */
 .mission {
-  background: var(--charcoal); color: var(--cream);
+  background: var(--charcoal); color: var(--paper);
   display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
 }
-.mission .section-heading { color: var(--cream); }
+.mission .section-heading { color: var(--paper); }
 .mission .section-body { color: rgba(250,246,238,0.65); }
 .mission .section-eyebrow { color: var(--amber-light); }
 .mission-pillars { display: flex; flex-direction: column; gap: 2rem; }
@@ -237,7 +238,7 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
   font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300;
   color: var(--amber); line-height: 1; flex-shrink: 0; width: 2.5rem;
 }
-.pillar-text h3 { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; color: var(--cream); margin-bottom: 0.4rem; }
+.pillar-text h3 { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; color: var(--paper); margin-bottom: 0.4rem; }
 .pillar-text p { font-size: 0.9rem; line-height: 1.7; color: rgba(250,246,238,0.55); font-weight: 300; }
 
 /* ---- INITIATIVES GRID ---- */
@@ -351,13 +352,13 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
 }
 .phone-screen-content { background: var(--ember-deep); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center; }
 .app-date { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(250,246,238,0.5); margin-bottom: 0.5rem; }
-.app-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--cream); margin-bottom: 1rem; }
+.app-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--paper); margin-bottom: 1rem; }
 .app-divider { height: 1px; background: rgba(201,123,46,0.3); margin: 1rem 0; }
 .app-verse-preview { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-style: italic; color: rgba(250,246,238,0.8); line-height: 1.55; margin-bottom: 0.5rem; }
 .app-ref { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber-light); }
 .app-actions-row { display: flex; gap: 0.5rem; margin-top: 1.25rem; }
 .app-btn { flex: 1; padding: 0.6rem; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; border-radius: var(--radius-sm); }
-.app-btn-solid { background: var(--amber); color: var(--cream); }
+.app-btn-solid { background: var(--amber); color: var(--paper); }
 .app-btn-outline { border: 1px solid rgba(201,123,46,0.4); color: var(--amber-light); }
 .app-features { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2.5rem; }
 .app-feature { display: flex; gap: 1rem; align-items: flex-start; }
@@ -366,7 +367,7 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
 .store-buttons { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
 .store-btn {
   display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1.5rem; border-radius: var(--radius-md);
-  background: var(--charcoal); color: var(--cream); text-decoration: none;
+  background: var(--charcoal); color: var(--paper); text-decoration: none;
   border: 1px solid rgba(255,255,255,0.08); opacity: 0.55; cursor: default; transition: all 0.3s ease;
 }
 .store-btn-icon { font-size: 1.4rem; }
@@ -415,7 +416,7 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
   cursor: pointer; transition: all 0.3s ease;
 }
 .prayer-cat-btn:hover { border-color: var(--amber); color: var(--amber); }
-.prayer-cat-btn.selected { background: var(--amber); border-color: var(--amber); color: var(--cream); }
+.prayer-cat-btn.selected { background: var(--amber); border-color: var(--amber); color: var(--paper); }
 .prayer-submit { display: block; margin: 0.5rem auto 0; }
 .prayer-board { margin-top: 3.5rem; }
 .prayer-board-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.5rem; text-align: center; }
@@ -430,18 +431,18 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
 /* ---- EMAIL SIGNUP / CONTACT ---- */
 .contact { background: var(--ember-deep); text-align: center; padding: 8rem 4rem; }
 .contact .section-eyebrow { color: var(--amber-light); margin-bottom: 1rem; }
-.contact .section-heading { color: var(--cream); margin-bottom: 1rem; }
+.contact .section-heading { color: var(--paper); margin-bottom: 1rem; }
 .contact .section-body { color: rgba(250,246,238,0.6); max-width: 500px; margin: 0 auto 2.5rem; }
 .contact-form { display: flex; gap: 0.75rem; max-width: 420px; margin: 0 auto; }
 .contact-form input {
   flex: 1; padding: 0.85rem 1.25rem; background: rgba(250,246,238,0.08); border-radius: var(--radius-sm);
-  border: 1px solid rgba(250,246,238,0.2); color: var(--cream);
+  border: 1px solid rgba(250,246,238,0.2); color: var(--paper);
   font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none; transition: border-color 0.3s ease;
 }
 .contact-form input::placeholder { color: rgba(250,246,238,0.35); }
 .contact-form input:focus { border-color: var(--amber); }
 .contact-form button {
-  padding: 0.85rem 1.5rem; background: var(--amber); border: none; border-radius: var(--radius-sm); color: var(--cream);
+  padding: 0.85rem 1.5rem; background: var(--amber); border: none; border-radius: var(--radius-sm); color: var(--paper);
   font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500;
   letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; white-space: nowrap;
 }
@@ -531,7 +532,7 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
 .hp-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--amber); flex-shrink: 0; }
 .hp-hero h1 {
   font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 7vw, 5.8rem); font-weight: 300;
-  line-height: 1.06; color: var(--cream); margin-bottom: 2rem; animation: fadeUp 0.6s 0.1s ease both;
+  line-height: 1.06; color: var(--paper); margin-bottom: 2rem; animation: fadeUp 0.6s 0.1s ease both;
 }
 .hp-hero h1 em { font-style: italic; color: var(--amber-light); font-weight: 300; }
 .hp-hero-sub {
@@ -576,7 +577,7 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
 .hp-join-links { display: flex; gap: 4rem; align-items: flex-start; justify-content: center; }
 .hp-join-link { display: flex; flex-direction: column; gap: 0.5rem; }
 .hp-join-link a {
-  font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 300; color: var(--cream);
+  font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 300; color: var(--paper);
   text-decoration: none; border-bottom: 1px solid rgba(250,246,238,0.15); padding-bottom: 0.2rem; line-height: 1.2;
   transition: color 0.3s ease, border-color 0.3s ease;
 }
@@ -597,7 +598,7 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
 .hp-email-form input::placeholder { color: rgba(61,53,48,0.4); }
 .hp-email-form input:focus { border-color: var(--amber); }
 .hp-email-form button {
-  padding: 0.8rem 1.5rem; background: var(--amber); border: 1px solid var(--amber); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--cream);
+  padding: 0.8rem 1.5rem; background: var(--amber); border: 1px solid var(--amber); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--paper);
   font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
   cursor: pointer; white-space: nowrap; transition: all 0.3s ease;
 }
@@ -624,7 +625,7 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
 
 /* Home page nav: dark, flows with page (not fixed), blends into hero */
 .hp-nav { position: relative; background: var(--charcoal); border-bottom: 1px solid rgba(250,246,238,0.06); backdrop-filter: none; }
-.hp-nav .nav-logo { color: var(--cream); }
+.hp-nav .nav-logo { color: var(--paper); }
 .hp-nav .nav-logo span { color: var(--amber); }
 .hp-nav .nav-links a { color: rgba(250,246,238,0.65); }
 .hp-nav .nav-links a:hover, .hp-nav .nav-links a.active { color: var(--amber); }
@@ -632,7 +633,7 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
 .hp-nav .dropdown-menu a { color: rgba(250,246,238,0.65); }
 .hp-nav .dropdown-menu a:hover { color: var(--amber); }
 .hp-nav .nav-toggle span { background: var(--cream); }
-.hp-nav .nav-cta { border-color: rgba(250,246,238,0.35); color: var(--cream); }
+.hp-nav .nav-cta { border-color: rgba(250,246,238,0.35); color: var(--paper); }
 
 /* ---- FOOTER (standard, non-homepage pages) ---- */
 footer { background: var(--charcoal); padding: 2rem 4rem; display: flex; align-items: center; justify-content: space-between; }
@@ -717,7 +718,7 @@ footer p { font-size: 0.75rem; color: rgba(250,246,238,0.25); letter-spacing: 0.
 .trips-hero .section-eyebrow { color: var(--amber-light); justify-content: center; display: flex; }
 .trips-hero h1 {
   font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.5rem);
-  font-weight: 300; line-height: 1.1; color: var(--cream); margin-bottom: 1.25rem;
+  font-weight: 300; line-height: 1.1; color: var(--paper); margin-bottom: 1.25rem;
 }
 .trips-hero-title {
   text-transform: uppercase; letter-spacing: 0.08em; font-weight: 400;
@@ -744,7 +745,7 @@ footer p { font-size: 0.75rem; color: rgba(250,246,238,0.25); letter-spacing: 0.
   border-radius: 999px; background: rgba(253,249,243,0.9); color: var(--ember); margin-bottom: auto;
 }
 .trip-tile-date { position: relative; z-index: 1; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(250,246,238,0.75); margin-bottom: 0.35rem; }
-.trip-tile-title { position: relative; z-index: 1; font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 400; color: var(--cream); line-height: 1.05; }
+.trip-tile-title { position: relative; z-index: 1; font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 400; color: var(--paper); line-height: 1.05; }
 
 .trip-modal-overlay {
   display: none; position: fixed; inset: 0; background: rgba(28,25,23,0.7); z-index: 1000;
