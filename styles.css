@@ -33,6 +33,7 @@
 
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--text-body); overflow-x: hidden; }
+body:not(.home) { background: #0C0E10 url('secondary-background.jpg') repeat; background-size: 700px auto; }
 
 /* ---- ACCESSIBILITY / MOTION (global) ---- */
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible,
@@ -485,7 +486,7 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
 /* ---- HOMEPAGE (index.html) ---- */
 .hp-hero {
   position: relative; min-height: 100vh; display: flex; align-items: center;
-  background: url('image_b3df6a9c.png') center center / cover no-repeat var(--charcoal);
+  background: url('home-background.jpg') center center / cover no-repeat var(--charcoal);
   padding: 9rem 4rem 6rem; overflow: hidden;
 }
 .hp-hero::after {
