@@ -34,7 +34,7 @@
 
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--text-body); overflow-x: hidden; }
-body:not(.home) { background: #0C0E10 url('secondary-background.jpg?v=2') repeat; background-size: 700px auto; }
+body:not(.home) { background: #0C0E10 url('secondary-background.jpg?v=2') repeat; background-size: 1200px auto; }
 
 /* ---- DARK THEME (every page except the homepage, which sets its own section backgrounds) ---- */
 body:not(.home) {
