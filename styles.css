@@ -43,7 +43,7 @@ body:not(.home) {
   --parchment: rgba(253,249,243,0.06);
   --text-body: rgba(253,249,243,0.88);
   --text-muted: var(--text-muted-on-dark);
-  --ink: var(--cream);
+  --ink: rgba(253,249,243,0.95);
   --rule: var(--rule-on-dark);
 }
 body:not(.home) nav { background: rgba(12,14,16,0.72); backdrop-filter: blur(16px); border-bottom-color: var(--rule-on-dark); }
