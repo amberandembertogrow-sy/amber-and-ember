@@ -35,7 +35,11 @@
 
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--text-body); overflow-x: hidden; }
-body:not(.home) { background: #0C0E10 url('secondary-background.jpg?v=2') repeat; background-size: 1200px auto; }
+body:not(.home) {
+  background: #0C0E10 url('secondary-background.jpg?v=2') repeat; background-size: 1200px auto;
+  display: flex; flex-direction: column; min-height: 100vh;
+}
+body:not(.home) footer { margin-top: auto; }
 
 /* ---- DARK THEME (every page except the homepage, which sets its own section backgrounds) ---- */
 body:not(.home) {
