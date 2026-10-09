@@ -621,14 +621,14 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
 .hp-footer-wordmark { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: rgba(250,246,238,0.6); letter-spacing: 0.04em; text-decoration: none; display: block; margin-bottom: 0.4rem; }
 .hp-footer-wordmark span { color: var(--amber); }
 .hp-footer-tagline { font-size: 0.78rem; color: rgba(250,246,238,0.3); font-weight: 300; }
-.hp-footer-nav { display: flex; gap: 2.5rem; flex-wrap: wrap; align-items: flex-start; }
+.hp-footer-nav { position: static; display: flex; gap: 2.5rem; flex-wrap: wrap; align-items: flex-start; justify-content: flex-start; padding: 0; background: none; backdrop-filter: none; border: 0; }
 .hp-footer-nav a { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(250,246,238,0.35); text-decoration: none; transition: color 0.3s ease; }
 .hp-footer-nav a:hover { color: var(--amber); }
 .hp-footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .hp-footer-copy { font-size: 0.72rem; color: rgba(250,246,238,0.2); letter-spacing: 0.04em; }
 
-/* Home page nav: dark, flows with page (not fixed), blends into hero */
-.hp-nav { position: relative; background: var(--charcoal); border-bottom: 1px solid rgba(250,246,238,0.06); backdrop-filter: none; }
+/* Home page nav: dark, blends into hero, stays pinned to the top on scroll */
+.hp-nav { position: sticky; top: 0; background: var(--charcoal); border-bottom: 1px solid rgba(250,246,238,0.06); backdrop-filter: none; }
 .hp-nav .nav-logo { color: var(--paper); }
 .hp-nav .nav-logo span { color: var(--amber); }
 .hp-nav .nav-links a { color: rgba(250,246,238,0.65); }
