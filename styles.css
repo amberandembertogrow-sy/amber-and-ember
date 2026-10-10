@@ -638,7 +638,15 @@ body.home {
 }
 .home .together-card { background: rgba(253,249,243,0.05); }
 .home .together-card a { color: var(--amber-light); border-color: rgba(232,168,74,0.35); }
-.home .hp-hero::after { background: linear-gradient(to bottom, transparent 0%, #0C0E10 100%); }
+/* Hero photo fades out over its lower part so the texture shows through with no seam */
+.home .hp-hero { background: none; }
+.home .hp-hero::before {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: url('home-background.jpg') center center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+}
+.home .hp-hero::after { display: none; }
 .home .hp-bridge { display: none; }
 .home .hp-mission, .home .hp-work, .home .hp-join, .home .hp-email { background: transparent; }
 .home .hp-mission, .home .hp-join, .home .hp-email { padding-top: 7rem; }
@@ -695,7 +703,7 @@ footer p { font-size: 0.75rem; color: rgba(250,246,238,0.25); letter-spacing: 0.
   .initiatives-grid { grid-template-columns: 1fr; gap: 2px; }
   .books-grid { grid-template-columns: 1fr; }
   .app-section-layout { grid-template-columns: 1fr; gap: 3rem; }
-  .support-grid { grid-template-columns: 1fr; }
+  .support-grid { grid-template-columns: 1fr !important; } /* !important beats give.html's inline 2-column grid */
   .involvement-grid { grid-template-columns: 1fr; }
   .hub-grid { grid-template-columns: 1fr; }
   .start-grid { grid-template-columns: 1fr; }
