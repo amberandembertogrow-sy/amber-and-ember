@@ -58,7 +58,8 @@ body:not(.home) .nav-links { background: rgba(18,16,15,0.97); }
 body:not(.home) .trip-modal { background: rgba(18,16,15,0.97); }
 body:not(.home) .initiative-card:hover { background: rgba(253,249,243,0.05); }
 body:not(.home) .card-link,
-body:not(.home) .involve-link { color: var(--amber-light); border-color: rgba(232,168,74,0.35); }
+body:not(.home) .involve-link,
+body:not(.home) .hub-card-cta { color: var(--amber-light); border-color: rgba(232,168,74,0.35); }
 body:not(.home) .involve-link:hover { border-color: var(--amber-light); }
 body:not(.home) .dropdown-menu a:hover { background: rgba(253,249,243,0.06); }
 body:not(.home) .form-group input,
