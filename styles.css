@@ -627,6 +627,26 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 4rem; }
 .hp-footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .hp-footer-copy { font-size: 0.72rem; color: rgba(250,246,238,0.2); letter-spacing: 0.04em; }
 
+/* Homepage below the hero: same sparkly amber/ember texture as the other pages (replaces the color-fade bridges) */
+body.home {
+  background: #0C0E10 url('secondary-background.jpg?v=2') repeat; background-size: 1200px auto;
+  --text-body: rgba(253,249,243,0.88);
+  --text-muted: var(--text-muted-on-dark);
+  --ink: rgba(253,249,243,0.95);
+  --rule: var(--rule-on-dark);
+  --parchment: transparent;
+}
+.home .together-card { background: rgba(253,249,243,0.05); }
+.home .together-card a { color: var(--amber-light); border-color: rgba(232,168,74,0.35); }
+.home .hp-hero::after { background: linear-gradient(to bottom, transparent 0%, #0C0E10 100%); }
+.home .hp-bridge { display: none; }
+.home .hp-mission, .home .hp-work, .home .hp-join, .home .hp-email { background: transparent; }
+.home .hp-mission, .home .hp-join, .home .hp-email { padding-top: 7rem; }
+.home .hp-pillar { background: rgba(253,249,243,0.05); }
+.home .hp-pillar-link:hover { color: var(--amber-light); border-color: var(--amber-light); }
+.home .hp-email-form input { background: rgba(253,249,243,0.1); border-color: rgba(201,123,46,0.4); }
+.home .hp-email-form input::placeholder { color: rgba(253,249,243,0.45); }
+
 /* Home page nav: dark, blends into hero, stays pinned to the top on scroll */
 .hp-nav { position: sticky; top: 0; background: var(--charcoal); border-bottom: 1px solid rgba(250,246,238,0.06); backdrop-filter: none; }
 .hp-nav .nav-logo { color: var(--paper); }
@@ -704,7 +724,7 @@ footer p { font-size: 0.75rem; color: rgba(250,246,238,0.25); letter-spacing: 0.
   .together-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
-  .hp-join-links { flex-direction: column; gap: 2rem; }
+  .hp-join-links { flex-direction: column; align-items: center; gap: 2rem; }
 }
 
 /* ---- TRIPS (upcoming-trips.html) ---- */
