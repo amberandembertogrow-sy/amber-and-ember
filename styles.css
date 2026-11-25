@@ -804,3 +804,14 @@ footer p { font-size: 0.75rem; color: rgba(250,246,238,0.25); letter-spacing: 0.
   .trips-grid { grid-template-columns: 1fr; }
   .trip-modal { padding: 2.5rem 1.5rem; }
 }
+
+/* Policy pages (privacy.html, delete-account.html) */
+.policy { max-width: 720px; margin: 0 auto; }
+.policy h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; margin: 2.25rem 0 0.75rem; color: var(--charcoal); }
+.policy p, .policy li { font-size: 1rem; line-height: 1.75; color: var(--text-muted); }
+.policy p { margin-bottom: 0.9rem; }
+.policy ul, .policy ol { padding-left: 1.4rem; margin-bottom: 0.9rem; }
+.policy li { margin-bottom: 0.4rem; }
+.policy a { color: var(--amber); }
+.policy-updated { font-size: 0.85rem !important; }
+.footer-policy-links a { color: inherit; text-decoration: underline; }
